@@ -16,7 +16,8 @@ class GDMDBox extends Migration {
 		{
 			$table->increments('id');
 			$table->bigInteger('user_id')
-				->references('user_id')->on('user')->onDelete('cascade');
+				->references('user_id')->on('user')
+				->onDelete('cascade');
 			$table->string('token');
 			$table->date('expired_date');
 			$table->timestamps();
