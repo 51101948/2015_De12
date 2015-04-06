@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Action' => $baseDir . '/app/models/Action.php',
+    'ActionsDataTableSeeder' => $baseDir . '/app/database/seeds/ActionsDataTableSeeder.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -92,6 +94,8 @@ return array(
     'GDMGDriver' => $baseDir . '/app/database/migrations/2015_04_06_143307_GDM_GDriver.php',
     'GDMLog' => $baseDir . '/app/database/migrations/2015_04_06_144805_GDM_Log.php',
     'GDMUsers' => $baseDir . '/app/database/migrations/2015_04_06_142518_GDMUsers.php',
+    'GDObject' => $baseDir . '/app/models/GDObject.php',
+    'GDObjectTableSeeder' => $baseDir . '/app/database/seeds/GDObjectTableSeeder.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'Illuminate\\Auth\\AuthManager' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/AuthManager.php',
@@ -1622,6 +1626,7 @@ return array(
     'System_SSH_Agent_Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/User.php',
+    'UsersDataTableSeeder' => $baseDir . '/app/database/seeds/UsersDataTableSeeder.php',
     'Way\\Generators\\Commands\\ControllerGeneratorCommand' => $vendorDir . '/way/generators/src/Way/Generators/Commands/ControllerGeneratorCommand.php',
     'Way\\Generators\\Commands\\GeneratorCommand' => $vendorDir . '/way/generators/src/Way/Generators/Commands/GeneratorCommand.php',
     'Way\\Generators\\Commands\\MigrationGeneratorCommand' => $vendorDir . '/way/generators/src/Way/Generators/Commands/MigrationGeneratorCommand.php',
