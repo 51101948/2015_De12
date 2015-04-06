@@ -19,3 +19,96 @@ Stack trace:
 #16 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
 #17 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
 #18 {main} [] []
+[2015-04-06 15:00:53] production.ERROR: exception 'ErrorException' with message 'file_put_contents(/var/www/web-programming-142/GDManagerProject/database/seeds/UsersDataTableSeeder.php): failed to open stream: No such file or directory' in /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Filesystem/Filesystem.php:20
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/web-pr...', 20, Array)
+#1 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Filesystem/Filesystem.php(20): file_put_contents('/var/www/web-pr...', '<?php??// Compo...')
+#2 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Generator.php(37): Way\Generators\Filesystem\Filesystem->make('/var/www/web-pr...', '<?php??// Compo...')
+#3 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Commands/GeneratorCommand.php(61): Way\Generators\Generator->make('/var/www/web-pr...', Array, '/var/www/web-pr...')
+#4 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(112): Way\Generators\Commands\GeneratorCommand->fire()
+#5 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Way\Generators\Commands\SeederGeneratorCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#11 {main} [] []
+[2015-04-06 15:01:56] production.ERROR: exception 'ErrorException' with message 'file_put_contents(/var/www/web-programming-142/GDManagerProject/database/seeds/UsersDataTableSeeder.php): failed to open stream: No such file or directory' in /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Filesystem/Filesystem.php:20
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/web-pr...', 20, Array)
+#1 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Filesystem/Filesystem.php(20): file_put_contents('/var/www/web-pr...', '<?php??// Compo...')
+#2 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Generator.php(37): Way\Generators\Filesystem\Filesystem->make('/var/www/web-pr...', '<?php??// Compo...')
+#3 /var/www/web-programming-142/GDManagerProject/vendor/way/generators/src/Way/Generators/Commands/GeneratorCommand.php(61): Way\Generators\Generator->make('/var/www/web-pr...', Array, '/var/www/web-pr...')
+#4 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(112): Way\Generators\Commands\GeneratorCommand->fire()
+#5 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Way\Generators\Commands\SeederGeneratorCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#11 {main} [] []
+[2015-04-06 15:29:23] production.ERROR: exception 'ReflectionException' with message 'Class UserTableSeeder does not exist' in /var/www/web-programming-142/GDManagerProject/bootstrap/compiled.php:235
+Stack trace:
+#0 /var/www/web-programming-142/GDManagerProject/bootstrap/compiled.php(235): ReflectionClass->__construct('UserTableSeeder')
+#1 /var/www/web-programming-142/GDManagerProject/bootstrap/compiled.php(205): Illuminate\Container\Container->build('UserTableSeeder', Array)
+#2 /var/www/web-programming-142/GDManagerProject/bootstrap/compiled.php(583): Illuminate\Container\Container->make('UserTableSeeder', Array)
+#3 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(55): Illuminate\Foundation\Application->make('UserTableSeeder')
+#4 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(37): Illuminate\Database\Seeder->resolve('UserTableSeeder')
+#5 /var/www/web-programming-142/GDManagerProject/app/database/seeds/DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('UserTableSeeder')
+#6 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Database/Console/SeedCommand.php(57): DatabaseSeeder->run()
+#7 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#8 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#14 {main} [] []
+[2015-04-06 15:29:53] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'user' not found' in /var/www/web-programming-142/GDManagerProject/app/database/seeds/UsersDataTableSeeder.php:32
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-06 15:34:34] production.ERROR: exception 'InvalidArgumentException' with message 'There are no commands defined in the "make:" namespace.' in /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php:516
+Stack trace:
+#0 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(550): Symfony\Component\Console\Application->findNamespace('make:')
+#1 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(190): Symfony\Component\Console\Application->find('make::model')
+#2 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2015-04-06 15:35:34] production.ERROR: exception 'InvalidArgumentException' with message 'There are no commands defined in the "make" namespace.' in /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php:516
+Stack trace:
+#0 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(550): Symfony\Component\Console\Application->findNamespace('make')
+#1 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(190): Symfony\Component\Console\Application->find('make:model')
+#2 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#4 {main} [] []
+[2015-04-06 15:36:45] production.ERROR: exception 'RuntimeException' with message 'The "--table" option does not exist.' in /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Input/ArgvInput.php:213
+Stack trace:
+#0 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Input/ArgvInput.php(152): Symfony\Component\Console\Input\ArgvInput->addLongOption('table', 'user')
+#1 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Input/ArgvInput.php(86): Symfony\Component\Console\Input\ArgvInput->parseLongOption('--table=user')
+#2 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Input/Input.php(61): Symfony\Component\Console\Input\ArgvInput->parse()
+#3 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(225): Symfony\Component\Console\Input\Input->bind(Object(Symfony\Component\Console\Input\InputDefinition))
+#4 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Way\Generators\Commands\ModelGeneratorCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#9 {main} [] []
+[2015-04-06 15:41:37] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Cannot redeclare class User' in /var/www/web-programming-142/GDManagerProject/app/models/Action.php:8
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-06 15:42:20] production.ERROR: exception 'ErrorException' with message 'Undefined variable: object' in /var/www/web-programming-142/GDManagerProject/app/database/seeds/GDObjectTableSeeder.php:18
+Stack trace:
+#0 /var/www/web-programming-142/GDManagerProject/app/database/seeds/GDObjectTableSeeder.php(18): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', '/var/www/web-pr...', 18, Array)
+#1 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(37): GDObjectTableSeeder->run()
+#2 /var/www/web-programming-142/GDManagerProject/app/database/seeds/DatabaseSeeder.php(16): Illuminate\Database\Seeder->call('GDObjectTableSe...')
+#3 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Database/Console/SeedCommand.php(57): DatabaseSeeder->run()
+#4 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(112): Illuminate\Database\Console\SeedCommand->fire()
+#5 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Command/Command.php(253): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /var/www/web-programming-142/GDManagerProject/vendor/laravel/framework/src/Illuminate/Console/Command.php(100): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#7 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(889): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#8 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(193): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#9 /var/www/web-programming-142/GDManagerProject/vendor/symfony/console/Symfony/Component/Console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#10 /var/www/web-programming-142/GDManagerProject/artisan(59): Symfony\Component\Console\Application->run()
+#11 {main} [] []
