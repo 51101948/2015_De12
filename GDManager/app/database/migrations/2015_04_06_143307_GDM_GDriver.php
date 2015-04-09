@@ -19,7 +19,7 @@ class GDMGDriver extends Migration {
 				->references('user_id')->on('user')
 				->onDelete('cascade');
 			$table->string('token');
-			$table->date('expired_date');
+			$table->date('expired_date')->nullable();
 			$table->timestamps();
 		});
 	}

@@ -7,12 +7,6 @@ class dropboxServiceInfo extends \BaseController {
 	private $appName;
 	private $csrfTokenStore;
 
-	public function getWebAuth(){
-		return $this->webAuth;
-	}
-	public function getAppInfo(){
-		return $this->appInfo;
-	}
 	public function __construct(){
 		session_start();
 		Session::put('user_id', 1);
@@ -34,7 +28,6 @@ class dropboxServiceInfo extends \BaseController {
 		$data = $_GET;
 		$WA = $this->webAuth;
 		list($accessToken, $uid) = $WA->finish($data);
-		/*echo $accessToken;
 		echo "<br>".$uid;*/
 		$DBoxUser = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
 
@@ -47,7 +40,16 @@ class dropboxServiceInfo extends \BaseController {
 				'expired_date' => null];
 			DBoxInfo::create($info);
 			echo "1 row inserted";
+		} else if($DBoxUser === 1){
+			$info = DBoxInfo::where('user_id',Session::get('user_id'))
+					->update(array('token' => $accessToken));
+					echo "1 row update";
+			
+		} else{
+			echo "something went wrong. please contact to DB Manager";
 		}
+
+		return Redirect::to('/');
 	}
 
 

@@ -1107,3 +1107,104 @@ Stack trace:
 #18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #19 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
 #20 {main} [] []
+[2015-04-09 12:42:39] production.ERROR: exception 'ErrorException' with message 'Undefined variable: DboxUser' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:51
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(51): Illuminate\Exception\Handler->handleError(8, 'Undefined varia...', '/var/www/2015_D...', 51, Array)
+#1 [internal function]: dropboxServiceInfo->AuthFinish()
+#2 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('AuthFinish', Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'AuthFinish')
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'AuthFinish')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2015-04-09 12:43:00] production.ERROR: exception 'ErrorException' with message 'Attempt to assign property of non-object' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:52
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(52): Illuminate\Exception\Handler->handleError(2, 'Attempt to assi...', '/var/www/2015_D...', 52, Array)
+#1 [internal function]: dropboxServiceInfo->AuthFinish()
+#2 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('AuthFinish', Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'AuthFinish')
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'AuthFinish')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2015-04-09 12:44:25] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined method Illuminate\Database\Eloquent\Collection::save()' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:53
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-09 12:54:36] production.ERROR: exception 'ErrorException' with message 'Object of class dropboxServiceInfo could not be converted to string' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:10067
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10067): Illuminate\Exception\Handler->handleError(4096, 'Object of class...', '/var/www/2015_D...', 10067, Array)
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10440): Symfony\Component\HttpFoundation\Response->setContent(Object(dropboxServiceInfo))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(9968): Illuminate\Http\Response->setContent(Object(dropboxServiceInfo))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(dropboxServiceInfo))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(dropboxServiceInfo))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#14 {main} [] []
+[2015-04-09 12:55:18] production.ERROR: exception 'ErrorException' with message 'Object of class dropboxServiceInfo could not be converted to string' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:10067
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10067): Illuminate\Exception\Handler->handleError(4096, 'Object of class...', '/var/www/2015_D...', 10067, Array)
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10440): Symfony\Component\HttpFoundation\Response->setContent(Object(dropboxServiceInfo))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(9968): Illuminate\Http\Response->setContent(Object(dropboxServiceInfo))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(dropboxServiceInfo))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(dropboxServiceInfo))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#14 {main} [] []
+[2015-04-09 12:56:17] production.ERROR: exception 'ErrorException' with message 'Object of class dropboxServiceInfo could not be converted to string' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:10067
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10067): Illuminate\Exception\Handler->handleError(4096, 'Object of class...', '/var/www/2015_D...', 10067, Array)
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(10440): Symfony\Component\HttpFoundation\Response->setContent(Object(dropboxServiceInfo))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(9968): Illuminate\Http\Response->setContent(Object(dropboxServiceInfo))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5258): Symfony\Component\HttpFoundation\Response->__construct(Object(dropboxServiceInfo))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5067): Illuminate\Routing\Router->prepareResponse(Object(Illuminate\Http\Request), Object(dropboxServiceInfo))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#14 {main} [] []
+[2015-04-09 12:57:09] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '('' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:59
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []

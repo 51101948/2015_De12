@@ -13,8 +13,7 @@
 
 Route::get('/', function()
 {
-	/*return View::make('hello');*/
-	return new dropboxServiceInfo();
+	return View::make('hello');
 });
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
