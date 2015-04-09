@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Action extends Eloquent implements UserInterface, RemindableInterface {
+class DBoxInfo extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -14,7 +14,7 @@ class Action extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'action';
+	protected $table = 'd_box';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -22,4 +22,6 @@ class Action extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var array
 	 */
 	//protected $hidden = array('password', 'remember_token');
+	protected $fillable = array('user_id', 'token', 'exprired_date');
+
 }

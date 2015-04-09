@@ -13,5 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	/*return View::make('hello');*/
+	return new dropboxServiceInfo();
 });
+
+Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
+Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
