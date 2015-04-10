@@ -51,7 +51,7 @@ class dropboxServiceInfo extends \BaseController {
 	}
 
 	public function getDropboxClient(){
-		echo "puHxTUhQegsAAAAAAAAHRVurDjC2AvOGNHN1fQo8HbR4MvzqxnCDnkCasZWjuk5g<br>";
+		echo "puHxTUhQegsAAAAAAAAHSaH_7PCEBN3wVaJ5UoCGz8utdgE0ZkQc_2fmfYWMGh3I<br>";
 
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
 		echo $info->token."<br>";
