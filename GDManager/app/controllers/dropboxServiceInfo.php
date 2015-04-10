@@ -28,10 +28,8 @@ class dropboxServiceInfo extends \BaseController {
 		$data = $_GET;
 		$WA = $this->webAuth;
 		list($accessToken, $uid) = $WA->finish($data);
-		echo "<br>".$uid;*/
 		$DBoxUser = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
 
-		/*var_dump($DBoxUser === 0);*/
 		var_dump(Session::get('user_id'));
 		if($DBoxUser === 0){
 			$info = [
@@ -49,7 +47,28 @@ class dropboxServiceInfo extends \BaseController {
 			echo "something went wrong. please contact to DB Manager";
 		}
 
-		return Redirect::to('/');
+		return Redirect::to('/DClient');
+	}
+
+	public function getDropboxClient(){
+		echo "puHxTUhQegsAAAAAAAAHRVurDjC2AvOGNHN1fQo8HbR4MvzqxnCDnkCasZWjuk5g<br>";
+
+		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
+		echo $info->token."<br>";
+		echo $info; //$info is a object of DBoxInfo, not an array
+		echo "<br><br>";
+		var_dump(Session::all());
+		echo "<br><br>";
+		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+		try{
+			$clientInfo = $client->getAccountInfo();
+			var_dump($clientInfo);
+			echo "<br><br>";
+			echo $clientInfo['email']; //clientInfo is an array
+		} catch(Dropbox\Exception_InvalidAccessToken $e){
+			return Redirect::to('/DAuthStart');
+		}
+
 	}
 
 

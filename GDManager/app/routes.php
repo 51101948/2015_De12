@@ -18,3 +18,4 @@ Route::get('/', function()
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
+Route::get('/DClient','dropboxServiceInfo@getDropboxClient');
