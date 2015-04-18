@@ -2225,3 +2225,242 @@ Stack trace:
 #16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #17 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
 #18 {main} [] []
+[2015-04-11 03:42:47] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING)' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:17
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-11 03:47:25] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected '$tmpClient' (T_VARIABLE)' in /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php:16
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-11 15:28:45] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-11 15:34:27] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-11 15:36:47] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-11 15:55:01] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-11 15:57:48] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-11 16:31:57] production.ERROR: exception 'ErrorException' with message 'Use of undefined constant HTTP_HOST - assumed 'HTTP_HOST'' in /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php:52
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(52): Illuminate\Exception\Handler->handleError(8, 'Use of undefine...', '/var/www/2015_D...', 52, Array)
+#1 [internal function]: googleDriveServiceInfo->AuthFinish()
+#2 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('AuthFinish', Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(googleDriveServiceInfo), Object(Illuminate\Routing\Route), 'AuthFinish')
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'googleDriveServ...', 'AuthFinish')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2015-04-12 03:43:46] production.ERROR: exception 'ErrorException' with message 'array_key_exists() expects parameter 2 to be array, null given' in /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php:70
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'array_key_exist...', '/var/www/2015_D...', 70, Array)
+#1 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(70): array_key_exists('error', NULL)
+#2 [internal function]: googleDriveServiceInfo->getGoogleClient()
+#3 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getGoogleClient', Array)
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(googleDriveServiceInfo), Object(Illuminate\Routing\Route), 'getGoogleClient')
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'googleDriveServ...', 'getGoogleClient')
+#7 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2015-04-12 03:54:12] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-12 03:56:18] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-12 03:57:19] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-12 03:57:56] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-12 03:58:31] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /var/www/2015_De12/GDManager/bootstrap/compiled.php:5751
+Stack trace:
+#0 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#11 {main} [] []
+[2015-04-18 02:21:25] production.ERROR: exception 'Dropbox\Exception_NetworkIO' with message 'Error executing HTTP request: Could not resolve host: api.dropbox.com' in /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Curl.php:73
+Stack trace:
+#0 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/RequestUtil.php(223): Dropbox\Curl->exec()
+#1 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(1379): Dropbox\RequestUtil::doGet('GDManager', '1111', 'UTF-8', 'api.dropbox.com', '1/account/info', NULL)
+#2 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(157): Dropbox\Client->doGet('api.dropbox.com', '1/account/info')
+#3 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(56): Dropbox\Client->getAccountInfo()
+#4 [internal function]: dropboxServiceInfo->getDropboxClient()
+#5 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getDropboxClien...', Array)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'getDropboxClien...')
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'getDropboxClien...')
+#9 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#21 {main} [] []
+[2015-04-18 02:22:21] production.ERROR: exception 'Dropbox\Exception_NetworkIO' with message 'Error executing HTTP request: Could not resolve host: api.dropbox.com' in /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Curl.php:73
+Stack trace:
+#0 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/RequestUtil.php(223): Dropbox\Curl->exec()
+#1 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(1379): Dropbox\RequestUtil::doGet('GDManager', '1111', 'UTF-8', 'api.dropbox.com', '1/account/info', NULL)
+#2 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(157): Dropbox\Client->doGet('api.dropbox.com', '1/account/info')
+#3 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(56): Dropbox\Client->getAccountInfo()
+#4 [internal function]: dropboxServiceInfo->getDropboxClient()
+#5 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getDropboxClien...', Array)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'getDropboxClien...')
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'getDropboxClien...')
+#9 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#21 {main} [] []

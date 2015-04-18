@@ -51,17 +51,12 @@ class dropboxServiceInfo extends \BaseController {
 
 	public function getDropboxClient(){
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
-		echo $info->token."<br>";
-		echo $info; //$info is a object of DBoxInfo, not an array
-		echo "<br><br>";
-		var_dump(Session::all());
-		echo "<br><br>";
 		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 		try{
 			$clientInfo = $client->getAccountInfo();
 			var_dump($clientInfo);
 			echo "<br><br>";
-			echo $clientInfo['email']; //clientInfo is an array
+			var_dump($_SERVER);
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}

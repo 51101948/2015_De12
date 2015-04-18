@@ -11,7 +11,7 @@ class googleDriveServiceInfo extends \BaseController {
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');
 		$tmpClient->setScopes(array('https://www.googleapis.com/auth/drive'));
-		$this->redirectUri="https://gdmanager.local.com/GAuthFinish";
+		$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
 		/*$this->redirectUri="http://localhost";*/
 		$tmpClient->setRedirectUri($this->redirectUri);
 		$this->client=$tmpClient;/*createAuthUrl*/
@@ -49,6 +49,8 @@ class googleDriveServiceInfo extends \BaseController {
 		} else{
 			echo "something went wrong. please contact to DB Manager";
 		}
+		$URL = 'http://'.$_SERVER['SERVER_NAME'].'/GClient';
+		return Redirect::to($URL);
 
 	}
 
@@ -61,7 +63,7 @@ class googleDriveServiceInfo extends \BaseController {
 		$url = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$AccessToken;
     	$temp = curl_init($url);
 		//curl_setopt($temp, CURLOPT_POST, 1);
-		curl_setopt($temp, CURLOPT_FOLLOWLOCATION, 1);
+		//curl_setopt($temp, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($temp, CURLOPT_HEADER, 0);
 		curl_setopt($temp, CURLOPT_RETURNTRANSFER, 1);
 		$response = json_decode(curl_exec($temp), true);
@@ -75,6 +77,9 @@ class googleDriveServiceInfo extends \BaseController {
 		$service = new Google_Service_Drive($Client);
 
 		var_dump($service);
+
+		echo $_SERVER['SERVER_NAME']."<br>";
+		echo $_SERVER['HTTP_HOST'];
 
 	}
 
