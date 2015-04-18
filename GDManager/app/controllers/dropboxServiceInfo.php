@@ -14,10 +14,10 @@ class dropboxServiceInfo extends \BaseController {
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
 		$dropboxSecret = "kefp7hysoeirdx6";
-		$RedirectUri = "https://gdmanager.local/DAuthFinish";
+		$RedirectUri = "https://gdmanager.local.com/DAuthFinish";
 		$this->csrfTokenStore = new Dropbox\ArrayEntryStore($_SESSION, 'dropbox-auth-csrf-token');
 		$this->appInfo =new Dropbox\AppInfo($dropboxKey, $dropboxSecret);/*::loadFromJsonFile($ROOT.'/dropbox-key.json');*/
-		$this->appName = "DboxManager142";
+		$this->appName = "GDManager";
 		$this->webAuth = new Dropbox\WebAuth($this->appInfo, $this->appName, $RedirectUri, $this->csrfTokenStore);
 	}
 	public function AuthStart(){
@@ -34,8 +34,7 @@ class dropboxServiceInfo extends \BaseController {
 		if($DBoxUser === 0){
 			$info = [
 				'user_id' => Session::get('user_id'),
-				'token' => $accessToken,
-				'expired_date' => null];
+				'token' => $accessToken];
 			DBoxInfo::create($info);
 			echo "1 row inserted";
 		} else if($DBoxUser === 1){
@@ -51,20 +50,13 @@ class dropboxServiceInfo extends \BaseController {
 	}
 
 	public function getDropboxClient(){
-		echo "puHxTUhQegsAAAAAAAAHSaH_7PCEBN3wVaJ5UoCGz8utdgE0ZkQc_2fmfYWMGh3I<br>";
-
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
-		echo $info->token."<br>";
-		echo $info; //$info is a object of DBoxInfo, not an array
-		echo "<br><br>";
-		var_dump(Session::all());
-		echo "<br><br>";
 		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 		try{
 			$clientInfo = $client->getAccountInfo();
 			var_dump($clientInfo);
 			echo "<br><br>";
-			echo $clientInfo['email']; //clientInfo is an array
+			var_dump($_SERVER);
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
