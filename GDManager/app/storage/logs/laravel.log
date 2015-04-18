@@ -1208,3 +1208,39 @@ Stack trace:
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
 #1 {main} [] []
+[2015-04-17 15:34:23] production.ERROR: exception 'InvalidArgumentException' with message 'Command "test" is not defined.' in C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\vendor\symfony\console\Symfony\Component\Console\Application.php:564
+Stack trace:
+#0 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\vendor\symfony\console\Symfony\Component\Console\Application.php(190): Symfony\Component\Console\Application->find('test')
+#1 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\vendor\symfony\console\Symfony\Component\Console\Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\artisan(59): Symfony\Component\Console\Application->run()
+#3 {main} [] []
+[2015-04-17 15:36:49] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php:5751
+Stack trace:
+#0 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\server.php(19): require_once('C:\\Users\\Hoan\\D...')
+#12 {main} [] []
+[2015-04-17 15:37:02] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php:5751
+Stack trace:
+#0 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5073): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5061): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\bootstrap\compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\public\index.php(49): Illuminate\Foundation\Application->run()
+#11 C:\Users\Hoan\Desktop\Assignment\web-programming-142\GDManager\server.php(19): require_once('C:\\Users\\Hoan\\D...')
+#12 {main} [] []
