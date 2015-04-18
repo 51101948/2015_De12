@@ -14,11 +14,25 @@ class dropboxServiceInfo extends \BaseController {
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
 		$dropboxSecret = "kefp7hysoeirdx6";
-		$RedirectUri = "https://gdmanager.local.com/DAuthFinish";
+		$RedirectUri = $this->getRedirectUri();//"https://gdmanager.local.com/DAuthFinish";
+		echo $RedirectUri;
 		$this->csrfTokenStore = new Dropbox\ArrayEntryStore($_SESSION, 'dropbox-auth-csrf-token');
 		$this->appInfo =new Dropbox\AppInfo($dropboxKey, $dropboxSecret);/*::loadFromJsonFile($ROOT.'/dropbox-key.json');*/
 		$this->appName = "GDManager";
 		$this->webAuth = new Dropbox\WebAuth($this->appInfo, $this->appName, $RedirectUri, $this->csrfTokenStore);
+	}
+
+	private function getRedirectUri(){
+		$result = "";
+		if(isset($_SERVER['HTTPS'])){
+			if($_SERVER['HTTPS']=="on"){
+				$resutl = "https://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
+				return $resutl;
+			}
+		}
+		else{
+			$result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
+		}
 	}
 	public function AuthStart(){
 		$WA = $this->webAuth;

@@ -2464,3 +2464,83 @@ Stack trace:
 #19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
 #20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
 #21 {main} [] []
+[2015-04-18 03:20:10] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'syntax error, unexpected 'getRedirectUri' (T_STRING), expecting variable (T_VARIABLE)' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:24
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-18 03:20:27] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to undefined function getredirecturi()' in /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php:17
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-04-18 03:21:15] production.ERROR: exception 'Dropbox\Exception_NetworkIO' with message 'Error executing HTTP request: Resolving timed out after 10520 milliseconds' in /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Curl.php:73
+Stack trace:
+#0 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/RequestUtil.php(223): Dropbox\Curl->exec()
+#1 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(1379): Dropbox\RequestUtil::doGet('GDManager', '1111', 'UTF-8', 'api.dropbox.com', '1/account/info', NULL)
+#2 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(157): Dropbox\Client->doGet('api.dropbox.com', '1/account/info')
+#3 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(69): Dropbox\Client->getAccountInfo()
+#4 [internal function]: dropboxServiceInfo->getDropboxClient()
+#5 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getDropboxClien...', Array)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'getDropboxClien...')
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'getDropboxClien...')
+#9 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#21 {main} [] []
+[2015-04-18 03:31:08] production.ERROR: exception 'Dropbox\Exception_NetworkIO' with message 'Error executing HTTP request: Resolving timed out after 10519 milliseconds' in /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Curl.php:73
+Stack trace:
+#0 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/RequestUtil.php(223): Dropbox\Curl->exec()
+#1 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(1379): Dropbox\RequestUtil::doGet('GDManager', '1111', 'UTF-8', 'api.dropbox.com', '1/account/info', NULL)
+#2 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(157): Dropbox\Client->doGet('api.dropbox.com', '1/account/info')
+#3 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(70): Dropbox\Client->getAccountInfo()
+#4 [internal function]: dropboxServiceInfo->getDropboxClient()
+#5 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getDropboxClien...', Array)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'getDropboxClien...')
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'getDropboxClien...')
+#9 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#21 {main} [] []
+[2015-04-18 03:31:41] production.ERROR: exception 'Dropbox\Exception_NetworkIO' with message 'Error executing HTTP request: SSL certificate problem: self signed certificate' in /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Curl.php:73
+Stack trace:
+#0 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/RequestUtil.php(223): Dropbox\Curl->exec()
+#1 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(1379): Dropbox\RequestUtil::doGet('GDManager', 'puHxTUhQegsAAAA...', 'UTF-8', 'api.dropbox.com', '1/account/info', NULL)
+#2 /var/www/2015_De12/GDManager/vendor/dropbox/dropbox-sdk/lib/Dropbox/Client.php(157): Dropbox\Client->doGet('api.dropbox.com', '1/account/info')
+#3 /var/www/2015_De12/GDManager/app/controllers/dropboxServiceInfo.php(70): Dropbox\Client->getAccountInfo()
+#4 [internal function]: dropboxServiceInfo->getDropboxClient()
+#5 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getDropboxClien...', Array)
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(dropboxServiceInfo), Object(Illuminate\Routing\Route), 'getDropboxClien...')
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'dropboxServiceI...', 'getDropboxClien...')
+#9 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#18 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#19 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#20 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#21 {main} [] []
