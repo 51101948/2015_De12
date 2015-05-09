@@ -5,6 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 
 class GDMGDrive extends Migration {
 
+	protected $fillable = array('user_id', 'token');
+
 	/**
 	 * Run the migrations.
 	 *
