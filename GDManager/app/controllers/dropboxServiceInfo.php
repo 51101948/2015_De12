@@ -8,8 +8,8 @@ class dropboxServiceInfo extends \BaseController {
 	private $csrfTokenStore;
 
 	public function __construct(){
-		//session_start();
-		//Session::put('user_id', 1);
+		session_start();
+		Session::put('user_id', 1);
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -73,11 +73,16 @@ class dropboxServiceInfo extends \BaseController {
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5eead579fe769504a4be16183ee092ab17457e17
 			//$info = $client->metaData('/Public', true);
 
 			//print_r($info['contents']);
 			
 			$folderMetadata = $client->getMetadataWithChildren("/");
+<<<<<<< HEAD
 print_r($folderMetadata);
 
 			//var_dump($clientInfo);
@@ -86,6 +91,23 @@ print_r($folderMetadata);
 =======
 			return $client;
 >>>>>>> 1257f5784a902b25ab93388723545da0ecea32e5
+=======
+			print_r($folderMetadata);
+
+		foreach ($folderMetadata['body']->contents as $fileObject) {
+     	 $fileName = basename($fileObject->path);
+      	$fileSize = $fileObject->size;
+      	$fullFileName = $fileObject->path;
+      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
+                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
+  }
+			//var_dump($clientInfo);
+			echo "<br><br>";
+			//var_dump($_SERVER);
+
+			return folderMetadata;
+
+>>>>>>> 5eead579fe769504a4be16183ee092ab17457e17
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}

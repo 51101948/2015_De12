@@ -30,7 +30,7 @@ class HomeController extends BaseController {
 	{
 	    // show the form
 	    if( null != (Session::get('user_id'))){
-			return Redirect::to('home');
+			return Redirect::to('/');
 		}
 		else {
 	    	return View::make('login');
@@ -71,7 +71,7 @@ class HomeController extends BaseController {
 	        // redirect them to the secure section or whatever
 	        // return Redirect::to('secure');
 	        // for now we'll just echo success (even though echoing in a controller is bad)
-	        return Redirect::to('home')->with('message', 'Login Success');
+	        return Redirect::to('/')->with('message', 'Login Success');
 
 	    } else {        
 	    	//var_dump(Auth::attempt($userdata));
