@@ -1,0 +1,81 @@
+@import url(//fonts.googleapis.com/css?family=Lato:700);
+
+		body {
+			margin:0;
+			font-family:'Lato', sans-serif;
+			text-align:center;
+			color: #999;
+		}
+
+		.pagesite {
+			background-image: url("http://www.freevector.com/site_media/preview_images/FreeVector-Diamond-Blur-Background-Image.jpg");
+			background-size: 100% 100%;
+		}
+		.logo {
+			text-align: left;
+			padding: 20px;
+		}
+		#myLogo {
+			width: 150px;
+			height: 80px;
+			float: left;
+		}
+		#slogan {
+			margin-left: 20px;
+			display: inline-block;
+			width: 500px;
+			height: 100px;
+			clear: both;
+		}
+		#navi {
+			background-color: #4386fc;
+			color: white;
+		}
+		a {
+			text-decoration-color: black; 
+		}
+		.navbar-brand {
+			color: black;
+		}
+		a, a:visited {
+			text-decoration:none;
+		}
+
+		h1 {
+			font-size: 32px;
+			margin: 16px 0 0 0;
+		}
+		.pagesite, .container, .menu, .content, .section, .gManager, .dManager, .preview {
+			border: solid 1px;	x
+		}
+		.content {
+			width: 100%;
+		}
+		.section {
+			width: 29%;
+			display: inline-block;
+		}
+		.gManager, .dManager {
+			height: 200px;
+			-webkit-filter: blur(5px);
+			-moz-filter: blur(5px);
+			-o-filter: blur(5px);
+			-ms-filter: blur(5px);
+			filter: blur(5px);
+		}
+		.gManager {
+			background-image: url("http://www.blogcdn.com/www.engadget.com/media/2013/03/google-drive-masthead-620.jpg");
+			background-size: 100% 100%; 
+		}
+		.dManager {
+			background-image: url("http://www.maximumpc.com/files/u160391/dropbox.png");
+			background-size: 100% 100%; 
+		}
+		.preview {
+			width: 69%;
+			display: inline-block;
+		}
+		.footer {
+			height: 50px;
+			background-color: #333333;
+		}
