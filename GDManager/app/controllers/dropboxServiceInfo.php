@@ -31,7 +31,7 @@ class dropboxServiceInfo extends \BaseController {
 			}
 		}
 		else{
-			$result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
+			return $result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
 		}
 	}
 	public function AuthStart(){
@@ -65,15 +65,33 @@ class dropboxServiceInfo extends \BaseController {
 
 	public function getDropboxClient(){
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
-		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
+		if ($count === 0) {
+			return Redirect::to('/DAuthStart');
+		}
 		try{
+			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
+<<<<<<< HEAD
+			//$info = $client->metaData('/Public', true);
+
+			//print_r($info['contents']);
+			
+			$folderMetadata = $client->getMetadataWithChildren("/");
+print_r($folderMetadata);
+
+			//var_dump($clientInfo);
+			echo "<br><br>";
+			//var_dump($_SERVER);
+=======
 			return $client;
+>>>>>>> 1257f5784a902b25ab93388723545da0ecea32e5
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
 	}
+
 
 
 }
