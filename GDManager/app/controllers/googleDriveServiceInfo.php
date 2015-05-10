@@ -3,6 +3,7 @@
 class googleDriveServiceInfo extends \BaseController {
 	private $client;
 	private $redirectUri;
+	private $service;
 	
 	public function __construct(){
 		//session_start();
@@ -10,7 +11,13 @@ class googleDriveServiceInfo extends \BaseController {
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');
-		$tmpClient->setScopes(array('https://www.googleapis.com/auth/drive'));
+		$tmpClient->addScope('https://www.googleapis.com/auth/drive.file',
+						    'https://www.googleapis.com/auth/drive.readonly',
+						    'https://www.googleapis.com/auth/drive.metadata.readonly',
+						    'https://www.googleapis.com/auth/drive.appdata',
+						    'https://www.googleapis.com/auth/drive.apps.readonly',
+						    "https://www.googleapis.com/auth/drive",
+						    "https://www.googleapis.com/auth/drive.appfolder");
 		$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
 		/*$this->redirectUri="http://localhost";*/
 		$tmpClient->setRedirectUri($this->redirectUri);
@@ -54,7 +61,7 @@ class googleDriveServiceInfo extends \BaseController {
 
 	}
 
-	public function getGoogleClient(){
+	public function getGoogleService(){
 		$info = GDriveInfo::where('user_id',Session::get('user_id'))->get()->first();
 		$strAccess = $info->token;
 		$info = json_decode($strAccess,true);
@@ -70,18 +77,42 @@ class googleDriveServiceInfo extends \BaseController {
 		if(array_key_exists('error', $response)){
 			return Redirect::to('/GAuthStart');
 		}
-		else 
-			echo "Google Client Access Token:<br>$AccessToken<br>";
-		$Client = new Google_Client();
-		$Client->setAccessToken($strAccess);
-		$service = new Google_Service_Drive($Client);
-
-		var_dump($service);
-
-		echo $_SERVER['SERVER_NAME']."<br>";
-		echo $_SERVER['HTTP_HOST'];
+		else{ 
+			$Client = new Google_Client();
+			$Client->setAccessToken($strAccess);
+			$Client->setUseObjects(true);
+			$Gservice = new Google_Service_Drive($Client);
+			$this->service = $Gservice;
+			return $Gservice;
+		}
 
 	}
 
+	public function getAllFiles(){
+		/*$Gservice = $this->service;
+		$result = array();
+		$pageToken = NULL;
+
+		do{
+			try{
+				$parameters = array();
+				if($pageToken){
+					$parameters['pageToken']=$pageToken;
+				}
+				$files = $service->files->listFiles($parameters);
+
+				$result = array_merge($result, $files->getItems());
+				$pageToken = $files->getNextPageToken();
+			} catch (Exception $e){
+				echo "An error occurred: " . $e->getMessage();
+				$pageToken=NULL;
+			}
+		} while($pageToken);
+		var_dump($result);*/
+
+		$Gservice = $this->getGoogleService();
+		$parentFolder = $Gservice->getRootFolderId();
+		echo $parentFolder;
+	}
 
 }

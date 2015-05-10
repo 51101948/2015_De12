@@ -32,4 +32,5 @@ Route::get('/DClient','dropboxServiceInfo@getDropboxClient');
 
 Route::get('/GAuthStart','googleDriveServiceInfo@AuthStart');
 Route::get('/GAuthFinish','googleDriveServiceInfo@AuthFinish');
-Route::get('/GClient','googleDriveServiceInfo@getGoogleClient');
+Route::get('/GClient','googleDriveServiceInfo@getGoogleService');
+Route::get('/GListFiles','googleDriveServiceInfo@getAllFiles');
