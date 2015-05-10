@@ -8,8 +8,8 @@ class dropboxServiceInfo extends \BaseController {
 	private $csrfTokenStore;
 
 	public function __construct(){
-		//session_start();
-		//Session::put('user_id', 1);
+		session_start();
+		Session::put('user_id', 1);
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -31,7 +31,7 @@ class dropboxServiceInfo extends \BaseController {
 			}
 		}
 		else{
-			$result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
+			return $result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
 		}
 	}
 	public function AuthStart(){
@@ -65,17 +65,40 @@ class dropboxServiceInfo extends \BaseController {
 
 	public function getDropboxClient(){
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
-		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
+		if ($count === 0) {
+			return Redirect::to('/DAuthStart');
+		}
 		try{
+			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
-			var_dump($clientInfo);
+
+			//$info = $client->metaData('/Public', true);
+
+			//print_r($info['contents']);
+			
+			$folderMetadata = $client->getMetadataWithChildren("/");
+			print_r($folderMetadata);
+
+		foreach ($folderMetadata['body']->contents as $fileObject) {
+     	 $fileName = basename($fileObject->path);
+      	$fileSize = $fileObject->size;
+      	$fullFileName = $fileObject->path;
+      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
+                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
+  }
+			//var_dump($clientInfo);
 			echo "<br><br>";
-			var_dump($_SERVER);
+			//var_dump($_SERVER);
+
+			return folderMetadata;
+
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
 	}
+
 
 
 }

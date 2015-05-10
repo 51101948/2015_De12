@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('home', array('uses' => 'HomeController@showHome'));
+Route::get('/', array('uses' => 'HomeController@showHome'));
 
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 
