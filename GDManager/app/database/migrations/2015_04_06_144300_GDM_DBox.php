@@ -5,8 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class GDMDBox extends Migration {
 
-	protected $fillable = array('user_id', 'token');//, 'email');
-
 	/**
 	 * Run the migrations.
 	 *

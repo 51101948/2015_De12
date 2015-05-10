@@ -68,9 +68,7 @@ class dropboxServiceInfo extends \BaseController {
 		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 		try{
 			$clientInfo = $client->getAccountInfo();
-			var_dump($clientInfo);
-			echo "<br><br>";
-			var_dump($_SERVER);
+			return $client;
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
