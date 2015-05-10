@@ -1,0 +1,38 @@
+<?php include 'app\views\header.blade.php'; ?>
+<?php echo Form::open(array('url'=>'signup', 'class'=>'form-signup')); ?>
+
+    <h2 class="form-signup-heading">Sign up</h2>
+
+    <ul>
+    <?php foreach($errors->all() as $error): ?>
+        <li><?php echo $error; ?></li>
+    <?php endforeach; ?>
+    </ul>
+
+    <p>
+    
+   <?php echo Form::text('user_name', null, array('class'=>'form-control', 'placeholder'=>'User Name')); ?>
+
+   </p>
+   <p>
+    
+   <?php echo Form::text('email', null, array('class'=>'form-control', 'placeholder'=>'Email Address')); ?>
+
+   </p>
+   <p>
+    
+   <?php echo Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')); ?>
+
+   </p>
+   <p>
+   
+   <?php echo Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Confirm Password')); ?>
+
+   </p>
+   <p>
+     <?php echo Form::submit('Sign up', array('class'=>'btn btn-primary')); ?>
+
+<?php echo Form::close(); ?>
+
+</p>
+<?php include 'app\views\footer.blade.php'; ?>

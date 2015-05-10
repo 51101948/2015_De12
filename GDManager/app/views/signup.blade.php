@@ -29,3 +29,4 @@
 {{ Form::close() }}
 </p>
 <?php include (base_path('app/views/footer.blade.php')) ?>
+
