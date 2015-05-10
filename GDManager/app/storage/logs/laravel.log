@@ -2586,6 +2586,7 @@ Stack trace:
 =======
 >>>>>>> 7f5849cf71fd46f019504ded5240eecabaf38e80
 >>>>>>> 46dae1da96d4e4cadf7b0692020d0a56d10f0068
+<<<<<<< HEAD
 [2015-04-18 08:04:48] production.ERROR: exception 'ErrorException' with message 'file_put_contents(/var/www/2015_De12/GDManager/app/storage/sessions/26f3cfdb06ab4228ecc5ce7f5c19da2d6b65066c): failed to open stream: Permission denied' in /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php:70
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleError(2, 'file_put_conten...', '/var/www/2015_D...', 70, Array)
@@ -3115,3 +3116,74 @@ Stack trace:
 Stack trace:
 #0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
 #1 {main} [] []
+=======
+[2015-05-10 04:03:38] production.ERROR: exception 'BadMethodCallException' with message 'Method [getRootFolderId] does not exist on Redirect.' in /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Http/RedirectResponse.php:221
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(108): Illuminate\Http\RedirectResponse->__call('getRootFolderId', Array)
+#1 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(108): Illuminate\Http\RedirectResponse->getRootFolderId()
+#2 [internal function]: googleDriveServiceInfo->getAllFiles()
+#3 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getAllFiles', Array)
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(googleDriveServiceInfo), Object(Illuminate\Routing\Route), 'getAllFiles')
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'googleDriveServ...', 'getAllFiles')
+#7 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+[2015-05-10 04:13:37] production.ERROR: exception 'ErrorException' with message 'Array to string conversion' in /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php:109
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(109): Illuminate\Exception\Handler->handleError(8, 'Array to string...', '/var/www/2015_D...', 109, Array)
+#1 [internal function]: googleDriveServiceInfo->getAllFiles()
+#2 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#3 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getAllFiles', Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(googleDriveServiceInfo), Object(Illuminate\Routing\Route), 'getAllFiles')
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'googleDriveServ...', 'getAllFiles')
+#6 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#7 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#17 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#18 {main} [] []
+[2015-05-10 04:22:19] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function getRootFolderId() on a non-object' in /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php:114
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-05-10 04:23:04] production.ERROR: exception 'BadMethodCallException' with message 'Method [getRootFolderId] does not exist on Redirect.' in /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Http/RedirectResponse.php:221
+Stack trace:
+#0 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(114): Illuminate\Http\RedirectResponse->__call('getRootFolderId', Array)
+#1 /var/www/2015_De12/GDManager/app/controllers/googleDriveServiceInfo.php(114): Illuminate\Http\RedirectResponse->getRootFolderId()
+#2 [internal function]: googleDriveServiceInfo->getAllFiles()
+#3 /var/www/2015_De12/GDManager/vendor/laravel/framework/src/Illuminate/Routing/Controller.php(231): call_user_func_array(Array, Array)
+#4 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5847): Illuminate\Routing\Controller->callAction('getAllFiles', Array)
+#5 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5835): Illuminate\Routing\ControllerDispatcher->call(Object(googleDriveServiceInfo), Object(Illuminate\Routing\Route), 'getAllFiles')
+#6 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5040): Illuminate\Routing\ControllerDispatcher->dispatch(Object(Illuminate\Routing\Route), Object(Illuminate\Http\Request), 'googleDriveServ...', 'getAllFiles')
+#7 [internal function]: Illuminate\Routing\Router->Illuminate\Routing\{closure}()
+#8 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5398): call_user_func_array(Object(Closure), Array)
+#9 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5065): Illuminate\Routing\Route->run(Object(Illuminate\Http\Request))
+#10 /var/www/2015_De12/GDManager/bootstrap/compiled.php(5053): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#11 /var/www/2015_De12/GDManager/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#12 /var/www/2015_De12/GDManager/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#13 /var/www/2015_De12/GDManager/bootstrap/compiled.php(7825): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#14 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8432): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#15 /var/www/2015_De12/GDManager/bootstrap/compiled.php(8379): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#16 /var/www/2015_De12/GDManager/bootstrap/compiled.php(11045): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#17 /var/www/2015_De12/GDManager/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#18 /var/www/2015_De12/GDManager/public/index.php(49): Illuminate\Foundation\Application->run()
+#19 {main} [] []
+>>>>>>> 1257f5784a902b25ab93388723545da0ecea32e5
