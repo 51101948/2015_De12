@@ -8,8 +8,8 @@ class dropboxServiceInfo extends \BaseController {
 	private $csrfTokenStore;
 
 	public function __construct(){
-		session_start();
-		Session::put('user_id', 1);
+		//session_start();
+		//Session::put('user_id', 1);
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
