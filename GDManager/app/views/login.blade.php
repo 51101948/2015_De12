@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 <?php include (base_path('app/views/header.blade.php')); ?>
-=======
-<?php include 'app\views\header.blade.php'; ?>
->>>>>>> 5eead579fe769504a4be16183ee092ab17457e17
 {{ Form::open(array('url' => 'login', 'class'=>'form-signin')) }}
 <h1>Login</h1>
 
@@ -25,8 +21,4 @@
 
 <p>{{ Form::submit('Log in!' , array('class'=>'btn btn-primary')) }}</p>
 {{ Form::close() }}
-<<<<<<< HEAD
 <?php include (base_path('app/views/footer.blade.php')) ?>
-=======
-<?php include 'app\views\footer.blade.php'; ?>
->>>>>>> 5eead579fe769504a4be16183ee092ab17457e17
