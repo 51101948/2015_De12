@@ -5,8 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class GDMLog extends Migration {
 
-	protected $fillable = array('user_id', 'action_id', 'filename', 'from', 'to');
-
 	/**
 	 * Run the migrations.
 	 *

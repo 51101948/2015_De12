@@ -21,4 +21,4 @@
 
 <p>{{ Form::submit('Log in!' , array('class'=>'btn btn-primary')) }}</p>
 {{ Form::close() }}
-<?php include (base_path('app/views/footer.blade.php')) ?>
+<?php include (base_path('app/views/footer.blade.php')); ?>

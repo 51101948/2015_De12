@@ -5,8 +5,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class GDMUsers extends Migration {
 
-	protected $fillable = array('user_name', 'password', 'email');
-
 	/**
 	 * Run the migrations.
 	 *
