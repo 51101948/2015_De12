@@ -108,10 +108,13 @@ class googleDriveServiceInfo extends \BaseController {
 			$data;
 			//$params['Authorization'] = 'Bearer '.$AccessToken;
 			//$file = $Gservice->files->get('0B3eaUYuGRDUqQ2l5eFg4eE5UODc0NnZvbko3NDhEYVVTeS1R', $params);
+			/*get file infomation*/
 			$file = $Gservice->files->get('0B3eaUYuGRDUqfllzS2UxdDBrUTZ4UFd3NTlReGFrU3BWUXR3eDNVVHg4NVJDNmtiQU9CTnc', $params);
 			var_dump($file->getMimeType());
 			echo '<br>application/vnd.openxmlformats-officedocument.wordprocessingml.document';
 			//var_dump($file);
+
+			/*download file to variable*/
 			$downloadUrl = $file->getDownloadUrl();
 			if ($downloadUrl) {
 			    $request = new Google_Http_Request($downloadUrl, 'GET', null, null);
@@ -130,12 +133,12 @@ class googleDriveServiceInfo extends \BaseController {
 			        //echo($data);
 
 			        /*upload test*/
-/*					$fileUp = new Google_Service_Drive_DriveFile($Client);
+					$fileUp = new Google_Service_Drive_DriveFile($Client);
 					$fileUp->setTitle('uploadDOCTEST.docx');
 					$fileUp->setMimeType($mimeType);
 					$fileUp->setEditable(true);
 
-					$createdFile = $Gservice->files->insert($fileUp, array('data'=>$data,'uploadType'=>'media'));*/
+					$createdFile = $Gservice->files->insert($fileUp, array('data'=>$data,'uploadType'=>'media'));
 					//var_dump($createdFile);
 			        echo '<br>1234';
 			    } else {
