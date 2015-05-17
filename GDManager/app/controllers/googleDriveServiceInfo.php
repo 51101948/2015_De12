@@ -6,22 +6,37 @@ class googleDriveServiceInfo extends \BaseController {
 	private $service;
 	
 	public function __construct(){
-		//session_start();
-		//Session::put('user_id',1);
+		session_start();
+		Session::put('user_id',1);
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');
-		$tmpClient->addScope('https://www.googleapis.com/auth/drive.file',
-						    'https://www.googleapis.com/auth/drive.readonly',
-						    'https://www.googleapis.com/auth/drive.metadata.readonly',
-						    'https://www.googleapis.com/auth/drive.appdata',
-						    'https://www.googleapis.com/auth/drive.apps.readonly',
-						    "https://www.googleapis.com/auth/drive",
-						    "https://www.googleapis.com/auth/drive.appfolder");
-		$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
+						    
+		$tmpClient->addScope('https://www.googleapis.com/auth/drive',
+	 						 'https://www.googleapis.com/auth/drive.file',
+							 'https://www.googleapis.com/auth/drive.readonly',
+							 /*'https://www.googleapis.com/auth/drive.metadata.readonly',*/
+							 'https://www.googleapis.com/auth/drive.appdata',
+							 'https://www.googleapis.com/auth/drive.metadata',
+							 'https://www.googleapis.com/auth/drive.apps.readonly',
+							 'https://www.googleapis.com/auth/drive.appfolder');
+		//$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
 		/*$this->redirectUri="http://localhost";*/
-		$tmpClient->setRedirectUri($this->redirectUri);
+		$tmpClient->setRedirectUri($this->getRedirectUri());
 		$this->client=$tmpClient;/*createAuthUrl*/
+	}
+
+	private function getRedirectUri(){
+		$result = "";
+		if(isset($_SERVER['HTTPS'])){
+			if($_SERVER['HTTPS']=="on"){
+				$resutl = "https://" . $_SERVER['HTTP_HOST'] . "/GAuthFinish";
+				return $resutl;
+			}
+		}
+		else{
+			return $result = "http://" . $_SERVER['HTTP_HOST'] . "/GAuthFinish";
+		}
 	}	
 
 	public function AuthStart(){
@@ -56,8 +71,8 @@ class googleDriveServiceInfo extends \BaseController {
 		} else{
 			echo "something went wrong. please contact to DB Manager";
 		}
-		$URL = 'http://'.$_SERVER['SERVER_NAME'].'/GClient';
-		return Redirect::to($URL);
+		//$URL = 'http://'.$_SERVER['SERVER_NAME'].'/GClient';
+		return Redirect::to('/GClient');
 
 	}
 
@@ -66,6 +81,7 @@ class googleDriveServiceInfo extends \BaseController {
 		$strAccess = $info->token;
 		$info = json_decode($strAccess,true);
 		$AccessToken=$info['access_token'];
+		Session::put('access_token',$AccessToken);
 		
 		$url = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$AccessToken;
     	$temp = curl_init($url);
@@ -80,39 +96,91 @@ class googleDriveServiceInfo extends \BaseController {
 		else{ 
 			$Client = new Google_Client();
 			$Client->setAccessToken($strAccess);
-			$Client->setUseObjects(true);
 			$Gservice = new Google_Service_Drive($Client);
-			$this->service = $Gservice;
-			return $Gservice;
+			
+			//var_dump($Gservice->children->get('root', array()));
+			//var_dump($Gservice->files->get('11w-ncO6s6ri-QztZ7FEHdpE3eTtZjukaZuL10zTFs6A'));
+
+			/*$children = $Gservice->children->get('root', array());
+			var_dump($children);*/
+
+			$params = array();
+			$data;
+			//$params['Authorization'] = 'Bearer '.$AccessToken;
+			//$file = $Gservice->files->get('0B3eaUYuGRDUqQ2l5eFg4eE5UODc0NnZvbko3NDhEYVVTeS1R', $params);
+			/*get file infomation*/
+			$file = $Gservice->files->get('0B3eaUYuGRDUqfllzS2UxdDBrUTZ4UFd3NTlReGFrU3BWUXR3eDNVVHg4NVJDNmtiQU9CTnc', $params);
+			var_dump($file->getMimeType());
+			echo '<br>application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+			//var_dump($file);
+
+			/*download file to variable*/
+			$downloadUrl = $file->getDownloadUrl();
+			if ($downloadUrl) {
+			    $request = new Google_Http_Request($downloadUrl, 'GET', null, null);
+			    $httpRequest = $Gservice->getClient()->getAuth()->authenticatedRequest($request);
+			    if ($httpRequest->getResponseHttpCode() == 200) {
+			        //var_dump($httpRequest);
+			        $data=$httpRequest->getResponseBody();
+			        /*$fp = fopen(base_path('app/MYDOC.txt'),'w');
+			        fwrite($fp, $data);*/
+			        //$data = file_get_contents(base_path('app/test.txt'));
+			        //var_dump($httpRequest);
+			        
+			        $mimeType='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+			        //$mimeType = 'text/plain';
+			        echo '<br><br>';
+			        //echo($data);
+
+			        /*upload test*/
+					$fileUp = new Google_Service_Drive_DriveFile($Client);
+					$fileUp->setTitle('uploadDOCTEST.docx');
+					$fileUp->setMimeType($mimeType);
+					$fileUp->setEditable(true);
+
+					$createdFile = $Gservice->files->insert($fileUp, array('data'=>$data,'uploadType'=>'media'));
+					//var_dump($createdFile);
+			        echo '<br>1234';
+			    } else {
+			      // An error occurred.
+			    	echo $httpRequest->getResponseHttpCode();
+			    	echo 'chua lay duoc data<br>';
+			      return null;
+			    }
+			} else {
+				echo '<br>7890';
+			}
 		}
 
 	}
 
 	public function getAllFiles(){
-		/*$Gservice = $this->service;
-		$result = array();
+		$service = $this->getGoogleService();
+		var_dump($service);
+		/*$Gservice = $this->getGoogleService();
+		$rootAlias = 'root';
 		$pageToken = NULL;
-
 		do{
 			try{
 				$parameters = array();
 				if($pageToken){
 					$parameters['pageToken']=$pageToken;
 				}
-				$files = $service->files->listFiles($parameters);
-
-				$result = array_merge($result, $files->getItems());
-				$pageToken = $files->getNextPageToken();
+				$children = $Gservice->children->listChildren($rootAlias, $parameters);
+				foreach ($children->getItems() as $child) {
+					var_dump(child);
+					echo '<br><br>';
+				}
+				$pageToken = $children->getNextPageToken();
 			} catch (Exception $e){
-				echo "An error occurred: " . $e->getMessage();
-				$pageToken=NULL;
+				echo $e->getMessage();
+				$pageToken = NULL;
 			}
 		} while($pageToken);
-		var_dump($result);*/
 
-		$Gservice = $this->getGoogleService();
-		$parentFolder = $Gservice->getRootFolderId();
-		echo $parentFolder;
+
+		
+		*/
 	}
 
 }

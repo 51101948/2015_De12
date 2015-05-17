@@ -72,35 +72,32 @@ class dropboxServiceInfo extends BaseController {
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
 
-			//$info = $client->metaData('/Public', true);
 
-			//print_r($info['contents']);
 			
-			$folderMetadata = $client->getMetadataWithChildren("/");
-
-			print_r($folderMetadata);
-
-		foreach ($folderMetadata['body']->contents as $fileObject) {
-     	 $fileName = basename($fileObject->path);
-      	$fileSize = $fileObject->size;
-      	$fullFileName = $fileObject->path;
-      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
-                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
-  }
-			//var_dump($clientInfo);
-			echo "<br><br>";
-			//var_dump($_SERVER);
-
-			return folderMetadata;
 
 
-print_r($folderMetadata);
+			
 
-			//var_dump($clientInfo);
-			echo "<br><br>";
-			//var_dump($_SERVER);
 
-			return $client;
+
+			//return $client;
+			return $folderMetadata;
+
+			/*			print_r($folderMetadata);
+
+					foreach ($folderMetadata['body']->contents as $fileObject) {
+			     	 $fileName = basename($fileObject->path);
+			      	$fileSize = $fileObject->size;
+			      	$fullFileName = $fileObject->path;
+			      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
+			                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
+			  }
+						//var_dump($clientInfo);
+						echo "<br><br>";
+						//var_dump($_SERVER);
+
+						return folderMetadata;
+			*/	
 
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
