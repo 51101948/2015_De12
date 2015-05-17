@@ -1,6 +1,6 @@
 <?php
 
-class dropboxServiceInfo extends \BaseController {
+class dropboxServiceInfo extends BaseController {
 
 	private $webAuth;
 	private $appInfo;
@@ -8,8 +8,7 @@ class dropboxServiceInfo extends \BaseController {
 	private $csrfTokenStore;
 
 	public function __construct(){
-		session_start();
-		Session::put('user_id', 1);
+		
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -72,17 +71,13 @@ class dropboxServiceInfo extends \BaseController {
 		try{
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> f1742e31be3f959aa6c76aa1590fc9e0e7d06288
 			//$info = $client->metaData('/Public', true);
 
 			//print_r($info['contents']);
 			
 			$folderMetadata = $client->getMetadataWithChildren("/");
-<<<<<<< HEAD
+
 			print_r($folderMetadata);
 
 		foreach ($folderMetadata['body']->contents as $fileObject) {
@@ -98,16 +93,15 @@ class dropboxServiceInfo extends \BaseController {
 
 			return folderMetadata;
 
-=======
+
 print_r($folderMetadata);
 
 			//var_dump($clientInfo);
 			echo "<br><br>";
 			//var_dump($_SERVER);
-=======
+
 			return $client;
->>>>>>> 1257f5784a902b25ab93388723545da0ecea32e5
->>>>>>> f1742e31be3f959aa6c76aa1590fc9e0e7d06288
+
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}

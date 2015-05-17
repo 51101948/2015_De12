@@ -62,7 +62,14 @@
 					      </form>
 					      <ul class="nav navbar-nav navbar-right">
 					        <li><a href="#">Profile</a></li>					   
-					        <li><a href="/logout">Sign out</a></li>
+					        <?php   
+							    if(null == (Session::get('user_id'))) {
+							        echo '<li><a href="/signup"><span>Sign Up</span></a></li><li><a href="/login"><span>Log In</span></a></li>';
+							    } else {
+							        echo '<li><a href="/logout"><span>Log Out</span></a></li>';
+							    } 
+							?> 
+							
 					        
 					        
 					      </ul>
