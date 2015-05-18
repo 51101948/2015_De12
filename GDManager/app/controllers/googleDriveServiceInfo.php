@@ -6,8 +6,8 @@ class googleDriveServiceInfo extends \BaseController {
 	private $service;
 	
 	public function __construct(){
-		session_start();
-		Session::put('user_id',1);
+		//session_start();
+		//Session::put('user_id',1);
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');

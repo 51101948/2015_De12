@@ -15,7 +15,6 @@ class dropboxServiceInfo extends \BaseController {
 		$dropboxKey = "06ns3j97428llck";
 		$dropboxSecret = "kefp7hysoeirdx6";
 		$RedirectUri = $this->getRedirectUri();//"https://gdmanager.local.com/DAuthFinish";
-		echo $RedirectUri;
 		$this->csrfTokenStore = new Dropbox\ArrayEntryStore($_SESSION, 'dropbox-auth-csrf-token');
 		$this->appInfo =new Dropbox\AppInfo($dropboxKey, $dropboxSecret);/*::loadFromJsonFile($ROOT.'/dropbox-key.json');*/
 		$this->appName = "GDManager";
@@ -73,27 +72,40 @@ class dropboxServiceInfo extends \BaseController {
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
 
-			//$info = $client->metaData('/Public', true);
+		
+			return  View::make('home')->with( 'client',$client );
 
-			//print_r($info['contents']);
+
 			
-			$folderMetadata = $client->getMetadataWithChildren("/");
-			print_r($folderMetadata);
 
-		/*foreach ($folderMetadata['body']->contents as $fileObject) {
-     	 $fileName = basename($fileObject->path);
-      	$fileSize = $fileObject->size;
-      	$fullFileName = $fileObject->path;
-      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
-                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
-  }
-			//var_dump($clientInfo);
-			echo "<br><br>";
-			//var_dump($_SERVER);
-*/
-			return eturn View::make('home')->with($folderMetadata);
 
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
+			return Redirect::to('/DAuthStart');
+		}
+
+	}
+
+
+	public function uploadFile()
+	{
+		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
+		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
+		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+		$clientInfo = $client->getAccountInfo();
+		try{
+		/*$path = $_POST('path');*/
+		var_dump($_POST['path']);
+		
+		
+		$uploadPath = $_POST['path'];
+		$f = fopen("/home/lam/Desktop/FileRac.txt", "rb");
+		var_dump($f);
+		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
+			fclose($f);
+			print_r($result);
+		
+		}
+		catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 

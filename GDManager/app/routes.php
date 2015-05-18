@@ -11,20 +11,24 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', array('uses' => 'HomeController@showHome'));
 
-Route::get('/login', function()
-{
-	return View::make('login');
-});
+Route::get('login', array('uses' => 'HomeController@showLogin'));
+
+// route to process the form
+Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+Route::get('logout', array('uses' => 'HomeController@doLogout'));
+Route::get('signup', array('uses' => 'HomeController@doSignup'));
+Route::post('signup', array('uses' => 'UsersController@userCreate'));
+
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
 
 /*Route::get(function(){
 },'dropboxServiceInfo@AuthFinish')*/
+Route::post('DClient','dropboxServiceInfo@uploadFile');
+
 
 Route::get('/DClient','dropboxServiceInfo@getDropboxClient');
 
