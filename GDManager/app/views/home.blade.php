@@ -60,9 +60,10 @@
     		</ul>
 
     		
-			<form method="post" name="submit" enctype="multipart/form-data">
+			<form method="post" action="/DClient" name="submit" enctype="multipart/form-data">
 			  <input type="file" id="filename" name="fileField" style="display: inline-block">
-			  <button type="button" id="testbtn" name="submit">Upload</button>
+			  <input type="text" id="filepath" name="path" style="display: none" >
+			  <button type="submit" id="testbtn" name="submit">Upload</button>
 			</form>
 		</div>					
 	</div>

@@ -10,10 +10,12 @@ $(document).ready(function(){
 
 	$("#testbtn").click(function(){
 		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
+		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
+		alert($("input#filepath").val());
 		//alert($("input#filename").mozFullPath);
-		var tmpPath = URL.createObjectURL();
-		alert(tmpPath);
-		var data = { path: $("input#pathVal").val() + "/" + $("input#filename").val() };
+		//var tmpPath = URL.createObjectURL();
+		//alert(tmpPath);
+		/*var data = { path: $("input#pathVal").val() + "/" + $("input#filename").val() };
 		 $.ajax({
         type: 'POST',
         url: '/DClient',
@@ -22,8 +24,8 @@ $(document).ready(function(){
             alert('successful');
         	location.reload();
         }
-
-	});
+*/
+	
 
 });
 	});

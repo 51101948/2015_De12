@@ -4,7 +4,15 @@ class googleDriveServiceInfo extends \BaseController {
 	private $client;
 	private $redirectUri;
 	private $service;
-	
+
+	const FOLDER = 'application/vnd.google-apps.folder';
+	const PDF = 'application/pdf';
+	const DOC = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+	const JPG = 'image/jpeg';
+	const XLS = 'application/vnd.google-apps.spreadsheet';
+	const FORM = 'application/vnd.google-apps.form';
+	const RAR = 'application/rar';
+
 	public function __construct(){
 
 		$tmpClient = new Google_Client();
@@ -97,43 +105,53 @@ class googleDriveServiceInfo extends \BaseController {
 			$Client->setAccessToken($strAccess);
 			$Gservice = new Google_Service_Drive($Client);
 			
-			//var_dump($Gservice->children->get('root', array()));
-			//var_dump($Gservice->files->get('11w-ncO6s6ri-QztZ7FEHdpE3eTtZjukaZuL10zTFs6A'));
 
-			/*$children = $Gservice->children->get('root', array());
-			var_dump($children);*/
+			/*$this->getAllFiles($Gservice, 'root');*/
+			//$children = $Gservice->children->get('0B-A0IKSrpg6VaXRadTI1M3BFR00', array());
+			//echo self::FOLDER;
+			//$this->getAllFiles($Gservice,'0B-A0IKSrpg6VaXRadTI1M3BFR00');
+			
+			$f_content = file_get_contents(base_path('app/exercise1.docx'));
+			echo $f_content.'<br><br>';
 
-			$params = array();
+			$file = $Gservice->files->get('0B-A0IKSrpg6VT1YwUG9tV1phNHM', array());
+			$downloadUrl = $file->getDownloadUrl();
+			$request = new Google_Http_Request($downloadUrl, 'GET', null, null);
+			    $httpRequest = $Gservice->getClient()->getAuth()->authenticatedRequest($request);
+			    if ($httpRequest->getResponseHttpCode() == 200) {
+			        $data=$httpRequest->getResponseBody();
+			        echo $data;
+			    }
+
+			if($f_content===$data){
+				echo "<br><br>NOI DUNG GIONG NHAU";
+			}
+			else{
+				echo "<br><br>NOI NO DUNG GIONG NHAU";	
+			}
+
+			/*$params = array();
 			$data;
-			//$params['Authorization'] = 'Bearer '.$AccessToken;
-			//$file = $Gservice->files->get('0B3eaUYuGRDUqQ2l5eFg4eE5UODc0NnZvbko3NDhEYVVTeS1R', $params);
-			/*get file infomation*/
-			$file = $Gservice->files->get('0B3eaUYuGRDUqfllzS2UxdDBrUTZ4UFd3NTlReGFrU3BWUXR3eDNVVHg4NVJDNmtiQU9CTnc', $params);
-			var_dump($file->getMimeType());
-			echo '<br>application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+			$file = $Gservice->files->get('0B-A0IKSrpg6VbDZQOGFkbjE4cGs', $params);
+			var_dump($file->getMimeType());*/
+			
 			//var_dump($file);
 
 			/*download file to variable*/
-			$downloadUrl = $file->getDownloadUrl();
+			/*$downloadUrl = $file->getDownloadUrl();
 			if ($downloadUrl) {
 			    $request = new Google_Http_Request($downloadUrl, 'GET', null, null);
 			    $httpRequest = $Gservice->getClient()->getAuth()->authenticatedRequest($request);
 			    if ($httpRequest->getResponseHttpCode() == 200) {
-			        //var_dump($httpRequest);
 			        $data=$httpRequest->getResponseBody();
-			        /*$fp = fopen(base_path('app/MYDOC.txt'),'w');
-			        fwrite($fp, $data);*/
 			        //$data = file_get_contents(base_path('app/test.txt'));
 			        //var_dump($httpRequest);
 			        
-			        $mimeType='application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-			        //$mimeType = 'text/plain';
-			        echo '<br><br>';
-			        //echo($data);
+			        $mimeType=$file->getMimeType();
 
-			        /*upload test*/
+			        //upload test
 					$fileUp = new Google_Service_Drive_DriveFile($Client);
-					$fileUp->setTitle('uploadDOCTEST.docx');
+					$fileUp->setTitle('ABCBACBACBCBAC.docx');
 					$fileUp->setMimeType($mimeType);
 					$fileUp->setEditable(true);
 
@@ -148,38 +166,32 @@ class googleDriveServiceInfo extends \BaseController {
 			    }
 			} else {
 				echo '<br>7890';
-			}
+			}*/
 		}
 
 	}
 
-	public function getAllFiles(){
-		$service = $this->getGoogleService();
-		var_dump($service);
-		/*$Gservice = $this->getGoogleService();
-		$rootAlias = 'root';
-		$pageToken = NULL;
-		do{
-			try{
-				$parameters = array();
-				if($pageToken){
-					$parameters['pageToken']=$pageToken;
-				}
-				$children = $Gservice->children->listChildren($rootAlias, $parameters);
-				foreach ($children->getItems() as $child) {
-					var_dump(child);
-					echo '<br><br>';
-				}
-				$pageToken = $children->getNextPageToken();
-			} catch (Exception $e){
-				echo $e->getMessage();
-				$pageToken = NULL;
+	public function getAllFiles($Gservice, $f_id){
+		$children = $Gservice->children->get($f_id, array());
+		$items=$children['items'];
+		foreach($items as $item){
+			$params = array();
+			$data;
+			$id=$item['id'];
+			$file = $Gservice->files->get($id, $params);
+			//var_dump($file->getMimeType)
+			if ($file->getMimeType()===self::FOLDER){
+				echo $file->getTitle();
+				echo ' CO : <br>';
+				$this->getAllFiles($Gservice, $id);
 			}
-		} while($pageToken);
-
-
-		
-		*/
+			else{
+				echo $id."                 ";
+				echo $file->getTitle();
+				echo '<br>';
+			}
+			
+		}
 	}
 
 }
