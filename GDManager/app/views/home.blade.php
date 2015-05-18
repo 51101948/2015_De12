@@ -71,7 +71,6 @@
 	<div class="preview">
 			<embed src="https://www.dropbox.com/home?preview=MT11KH1_KSK.pdf" width="700" height="700">
 	</div>
-
 </div>
 
 <?php include (base_path('app/views/footer.blade.php'));
