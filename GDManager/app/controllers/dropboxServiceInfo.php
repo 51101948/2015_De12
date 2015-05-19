@@ -8,7 +8,8 @@ class dropboxServiceInfo extends BaseController {
 	private $csrfTokenStore;
 
 	public function __construct(){
-		
+		session_start();
+		Session::put('user_id', 1);
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -80,8 +81,8 @@ class dropboxServiceInfo extends BaseController {
 
 
 
-			//return $client;
-			return $folderMetadata;
+			return $client;
+			//return $folderMetadata;
 
 			/*			print_r($folderMetadata);
 
