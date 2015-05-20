@@ -28,5 +28,19 @@ $(document).ready(function(){
 */
 	
 
-});
 	});
+
+	$("#Dchoose").click(function(){
+		$(".dManager").show();
+		$(".gManager").hide();
+		$("#Dchoose").attr("disabled", true);
+		$("#Gchoose").attr("disabled", false);
+
+	});
+	$("#Gchoose").click(function(){
+		$(".gManager").show();
+		$(".dManager").hide();
+		$("#Gchoose").attr("disabled", true);
+		$("#Dchoose").attr("disabled", false);
+	});
+});

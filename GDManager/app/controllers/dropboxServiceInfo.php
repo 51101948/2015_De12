@@ -6,15 +6,18 @@ class dropboxServiceInfo extends \BaseController {
 	private $appInfo;
 	private $appName;
 	private $csrfTokenStore;
+	private $client;
+	
 	public function token()
   {
     return csrf_token();
   }
 
 
-	public function __construct(){
-				session_start();
-	Session::put('user_id', 1);
+
+	public function __construct(){	
+		//session_start();
+
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -26,6 +29,7 @@ class dropboxServiceInfo extends \BaseController {
 
 		$this->webAuth = new Dropbox\WebAuth($this->appInfo, $this->appName, $RedirectUri, $this->csrfTokenStore);
 	}
+
 
 	private function getRedirectUri(){
 		$result = "";
@@ -39,12 +43,34 @@ class dropboxServiceInfo extends \BaseController {
 			return $result = "http://" . $_SERVER['HTTP_HOST'] . "/DAuthFinish";
 		}
 	}
+
+	public function getClient(){
+		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
+		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
+		if ($count === 0) {
+			return Redirect::to('/DAuthStart');
+		}
+		try{
+			$this->client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+			return $this->client;
+		} catch(Dropbox\Exception_InvalidAccessToken $e){
+			return Redirect::to('/DAuthStart');
+		}
+	}
+
 	public function AuthStart(){
 
+		if( null == (Session::get('user_id'))){
+			return Redirect::to('login')->withFlashMessage('You mush login before view this page');
+		}
+
+		else{
 
 		$WA = $this->webAuth;
 		return Redirect::to($WA->start());
+		} 
 	}
+
 	public function AuthFinish(){
 
 		$data = $_GET;
@@ -52,7 +78,6 @@ class dropboxServiceInfo extends \BaseController {
 		list($accessToken, $uid) = $WA->finish($data);
 		$DBoxUser = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
 
-		var_dump(Session::get('user_id'));
 		if($DBoxUser === 0){
 			$info = [
 				'user_id' => Session::get('user_id'),
@@ -63,7 +88,6 @@ class dropboxServiceInfo extends \BaseController {
 			$info = DBoxInfo::where('user_id',Session::get('user_id'))
 					->update(array('token' => $accessToken));
 					echo "1 row update";
-			
 		} else{
 			echo "something went wrong. please contact to DB Manager";
 		}
@@ -81,8 +105,6 @@ class dropboxServiceInfo extends \BaseController {
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
 			return  View::make('home')->with( 'client',$client );
-
-
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
@@ -122,9 +144,7 @@ class dropboxServiceInfo extends \BaseController {
 	}
 
 	public function downloadFile(){
-		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
-		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
-		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
+			$client = $this->getClient();
 			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "a+"));
 			print_r($fileMetadata);
 	}

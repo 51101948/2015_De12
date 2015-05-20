@@ -1,0 +1,34 @@
+
+<?php include (base_path('app/views/header.blade.php')); ?>
+<?php if(Session::has('flash_message')): ?>
+<?php echo Session::get('flash_message'); ?>
+
+<?php endif; ?>
+<?php echo Form::open(array('url' => 'login', 'class'=>'form-signin')); ?>
+
+<h1>Login</h1>
+
+<!-- if there are login errors, show them here -->
+<p>
+    <?php echo $errors->first('email'); ?>
+
+    <?php echo $errors->first('password'); ?>
+
+</p>
+
+<p>
+    
+    <?php echo Form::text('email', Input::old('email'), array('class'=>'form-control', 'placeholder' => 'Email address')); ?>
+
+</p>
+
+<p>
+    
+    <?php echo Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password')); ?>
+
+</p>
+
+<p><?php echo Form::submit('Log in!' , array('class'=>'btn btn-primary')); ?></p>
+<?php echo Form::close(); ?>
+
+<?php include (base_path('app/views/footer.blade.php')); ?>

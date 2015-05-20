@@ -75,25 +75,34 @@
 			width: 100%;
 		}
 		.section {
-			width: 29%;
+			padding: 15px;
+			width: 35%;
 			display: inline-block;
+			float: left;
+			background-color: white;
 		}
 		.gManager, .dManager {
 			text-align: left;		
 		}
 		.gManager {
-			
+			display: none;
 			background-size: 100% 100%; 
+			background-color: white;
 		}
 		.dManager {
-			
+			padding: 15px;
 			background-size: 100% 100%; 
+			
 		}
 		.preview {
-			width: 69%;
+			width: 60%;
 			display: inline-block;
-		}
-		.footer {
+			float: left;
+			background-color: white;
+			margin-left: 20px;
+		
+}		.footer {
+			clear: both;
 			height: 50px;
 			background-color: #333333;
 			color: white;
@@ -101,4 +110,23 @@
 		.form-signup, .form-signin {
 		    width: 400px;
 		    margin: 0 auto;
+		}
+		.section, .preview {
+			border: ridge #4386fc 5px;
+		}
+		.glyphicon-folder-close, .glyphicon-folder-open, .glyphicon-file {
+			color: #112E85;
+		}
+		.folder:hover, .subfolder:hover {
+			cursor: pointer;
+			color: black;
+		}
+		.subfolder {
+			margin-left: 30px;
+		}
+		.subfolder > a:link, a:visited {
+			color: black;
+		}
+		a:hover {
+			text-decoration: none;
 		}

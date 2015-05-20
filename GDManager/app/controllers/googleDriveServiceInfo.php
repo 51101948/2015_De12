@@ -57,11 +57,6 @@ class googleDriveServiceInfo extends \BaseController {
 
 		/*$accessInfo = (json_decode($accessInfo, true));
 		$accessToken = $accessInfo['access_token'];*/
-
-		echo "<br>".$this->client->getAccessToken()."<br>";
-
-		echo "<br>".$accessToken."<br>";
-
 		$GDriveUser = GDriveInfo::where('user_id',Session::get('user_id'))->get()->count();
 
 		if($GDriveUser === 0){
@@ -81,6 +76,30 @@ class googleDriveServiceInfo extends \BaseController {
 		//$URL = 'http://'.$_SERVER['SERVER_NAME'].'/GClient';
 		return Redirect::to('/GClient');
 
+	}
+
+	public function getClient(){
+		$info = GDriveInfo::where('user_id',Session::get('user_id'))->get()->first();
+		$strAccess = $info->token;
+		$info = json_decode($strAccess,true);
+		$AccessToken=$info['access_token'];
+		Session::put('access_token',$AccessToken);
+		
+		$url = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$AccessToken;
+    	$temp = curl_init($url);
+		//curl_setopt($temp, CURLOPT_POST, 1);
+		//curl_setopt($temp, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($temp, CURLOPT_HEADER, 0);
+		curl_setopt($temp, CURLOPT_RETURNTRANSFER, 1);
+		$response = json_decode(curl_exec($temp), true);
+		if(array_key_exists('error', $response)){
+			return Redirect::to('/GAuthStart');
+		}
+		else{ 
+			$Client = new Google_Client();
+			$Client->setAccessToken($strAccess);
+			return $Client;
+		}
 	}
 
 	public function getGoogleService(){
