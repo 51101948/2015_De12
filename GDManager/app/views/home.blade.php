@@ -3,6 +3,12 @@
 
 <div class="content">
 	<div class="section">
+		<div class="selection">
+			Choose: &nbsp; &nbsp;
+			<button id="Dchoose" class="btn btn-lg btn-primary" disabled="disabled">DManager</button>
+			<button id="Gchoose" class="btn btn-lg btn-primary">GManager</button>
+		</div>
+		<hr>
 		<div class="gManager">						
 		</div>
 		<div class="dManager">
@@ -11,6 +17,7 @@
 				<input  id="pathVal" type = "text">
 			</div>
 			<ul>
+				@if(isset($client))
 				<?php
 					function showFolder($content, $client, $x,$y){					
 					
@@ -42,9 +49,7 @@
 					}
 					 
 				}
-				?>	
-
-					
+				?>					
 				
 				<?php $folderMetadata = $client->getMetadataWithChildren("/");  ?>
 					@foreach($folderMetadata['contents'] as $content)
@@ -56,7 +61,7 @@
 					@endforeach
 
 
-
+					@endif
     		</ul>
 
     		
@@ -70,7 +75,7 @@
 
 
 	<div class="preview">
-			<embed src="https://www.dropbox.com/home?preview=MT11KH1_KSK.pdf" width="700" height="700">
+			<embed src="http://faculty.ksu.edu.sa/metwally/IS%20335/Elm04_14.pdf" width="700" height="700">
 	</div>
 </div>
 
