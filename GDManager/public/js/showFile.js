@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(this).next(".subfolder").toggle();
 		$(this).prev().toggleClass( 'glyphicon-folder-open', 'glyphicon-folder-close');
 		$("input#pathVal").val($(this).attr("id"));
+		
 	});
 
 	$("#testbtn").click(function(){
