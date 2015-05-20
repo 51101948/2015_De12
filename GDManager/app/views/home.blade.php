@@ -23,6 +23,7 @@
 					
 					if($content['is_dir']){				
 				?>			
+				
 					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> 				
 
     &nbsp; &nbsp; &nbsp;<a class="folder" id={{ $content['path'] }}> {{ substr($content['path'].'<br>', $x+1)  }} </a>

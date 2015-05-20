@@ -12,8 +12,10 @@ class dropboxServiceInfo extends \BaseController {
   }
 
 
+
 	public function __construct(){	
 		session_start();
+
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -40,11 +42,13 @@ class dropboxServiceInfo extends \BaseController {
 		}
 	}
 	public function AuthStart(){
+
 		if( null == (Session::get('user_id'))){
 			return Redirect::to('login')->withFlashMessage('You mush login before view this page');
 		}
 
 		else{
+
 		$WA = $this->webAuth;
 		return Redirect::to($WA->start());
 	} 
@@ -84,7 +88,7 @@ class dropboxServiceInfo extends \BaseController {
 		try{
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
-
+			//var_dump($client->getMetadataWithChildren("/"));
 		
 			return  View::make('home')->with( 'client',$client );
 
@@ -131,7 +135,7 @@ class dropboxServiceInfo extends \BaseController {
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
 		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
 		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
-			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "wb"));
+			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "a+"));
 			print_r($fileMetadata);
 	}
 
