@@ -21,7 +21,30 @@ class FilesController extends \BaseController {
 		var_dump($result);
 	}
 
+	public function MoveDroptoGDrive()
+		{
+			$Fpath=$_POST['path'];
+			$Fname=$_POST['sfname'];
+			$driveFile = new Google_Service_Drive_DriveFile($this->GClient);
+			//var_dump($Fname);
+			$contentDrop=$this->dropboxGetFileContent($Fpath,$Fname);
 
+			$driveFile->setTitle($contentDrop['fileName']);
+			$driveFile->setMimeType($contentDrop['mimeType']);
+			$driveFile->setEditable(true);
+
+
+			try{
+
+		$DriveService = new Google_Service_Drive($this->GClient);
+		}
+		catch(Exception $e){
+			return Redirect::to('/GAuthStart');
+		}
+		$createdFile = $DriveService->files->insert($driveFile, array('data'=>$contentDrop['contents'],'uploadType'=>'media'));
+		return Redirect::to('home');
+
+		}
 	public function dropboxGetFileContent($dropbox_path, $filename){
 		$local_path = base_path('app/'.$filename);
 		$fileMetadata = $this->DClient->getFile($dropbox_path, fopen($local_path, "a+"));
@@ -50,7 +73,23 @@ class FilesController extends \BaseController {
 		}
 	}
 
-	public function googleGetFileContent($id){
+	
+
+	public function MoveGDrivetoDrop()
+	{
+		
+	
+		$GId=$_POST['GDrivepath'];
+		$GFileName=$_POST['GDrivename'];
+		$Gcontent=$this->googleGetFileContent($GId);
+		$Gpath='/'.$Gcontent['fileName'];
+		$this->dropboxUploadFileContent($Gpath,$Gcontent);
+	
+
+		return Redirect::to('home');
+
+	}
+public function googleGetFileContent($id){
 		try{
 		$DriveService = new Google_Service_Drive($this->GClient);
 		}
@@ -74,7 +113,6 @@ class FilesController extends \BaseController {
 		    }
 		}
 	}	
-
 	public function dropboxUploadFileContent($dropbox_path, $file_info){
 		$result = $this->DClient->uploadFileFromString($dropbox_path, Dropbox\WriteMode::add(), $file_info['contents']);
 		return $result;
@@ -128,29 +166,16 @@ class FilesController extends \BaseController {
 			print_r($result);
 
 			return $client;
-			//return $folderMetadata;
-
-			/*			print_r($folderMetadata);
-
-					foreach ($folderMetadata['body']->contents as $fileObject) {
-			     	 $fileName = basename($fileObject->path);
-			      	$fileSize = $fileObject->size;
-			      	$fullFileName = $fileObject->path;
-			      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
-			                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
-			  }
-						//var_dump($clientInfo);
-						echo "<br><br>";
-						//var_dump($_SERVER);
-
-						return folderMetadata;
-			*/	
+			
 
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
 	}
+
+
+	
 
 
 }

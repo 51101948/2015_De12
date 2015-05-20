@@ -13,22 +13,35 @@ $(document).ready(function(){
 		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
 		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
 		alert($("input#filepath").val());
-		//alert($("input#filename").mozFullPath);
-		//var tmpPath = URL.createObjectURL();
-		//alert(tmpPath);
-		/*var data = { path: $("input#pathVal").val() + "/" + $("input#filename").val() };
-		 $.ajax({
-        type: 'POST',
-        url: '/DClient',
-        data: data,
-        success: function(data){
-            alert('successful');
-        	location.reload();
-        }
-*/
+		
 	
 
 	});
+
+
+	$(".file").click(function(){
+		$(this).next(".transfer").toggle();
+		
+		$("input#subfilepath").val($(this).attr("id"));
+
+		$("input#subfilename").val($(this).attr("name"));
+
+	});
+
+		$("#DeleteFile").click(function()
+	{
+		
+		
+
+	});
+
+
+	$(".fileGDtive").click(function()
+	{
+		$(this).next(".transfertoDrop").toggle();
+		$("input#Gfilepath").val($(this).attr("id"));
+		$("input#Gfilename").val($(this).attr("name"));
+	})
 
 	$("#Dchoose").click(function(){
 		

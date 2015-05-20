@@ -42,7 +42,14 @@
 							else{
 							?>
 								
-								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;<a class="file"  href="#"> {{ $file->getTitle().'<br>' }}</a> 
+								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;<a class="fileGDtive"  href="#" id={{$file->getId()}}> {{ $file->getTitle().'<br>' }}</a> 
+								<div class="transfertoDrop"  style="display:none">
+							<form method="post" action="/MovetoDrop" name="submit" enctype="multipart/form-data">							  
+							  <input type="text" id="Gfilepath" name="GDrivepath" style="display: none" >
+							  <input type="text" id="Gfilename" name="GDrivename" style="display: none" >
+							  <button type="submit" id="moveFile" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
+							</form>
+						</div><br>
 							<?php
 							}
 						}
@@ -95,8 +102,18 @@
 					}
 					else{
 				?>
-						<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;<a class="file"  href="#"> {{ substr($content['path'].'<br>', $x+1) }}</a> 
-				<?php
+				<a class="file"  id={{$content['path']}} href="javascript:void(0)" name={{substr($content['path'], $x+1) }} > {{ substr($content['path'].'<br>', $x+1) }}</a> 
+						&nbsp; &nbsp; &nbsp;
+						<div class="transfer"  style="display:none">
+							<form method="post" action="/Test" name="submit" enctype="multipart/form-data">							  
+							  <input type="text" id="subfilepath" name="path" style="display: none" >
+							  <input type="text" id="subfilename" name="sfname" style="display: none" >
+							  <button type="submit" id="testbtn" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
+
+							</form>
+						
+						</div><br>
+						<?php
 					}
 					 
 				}
