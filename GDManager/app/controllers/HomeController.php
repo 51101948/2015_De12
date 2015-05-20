@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function showHome()
 	{
-		//var_dump(Session::get('user_id'));
+
 		if( null == (Session::get('user_id'))){
 			return Redirect::to('login')->withFlashMessage('You mush login before view this page');
 		}
@@ -94,4 +94,6 @@ class HomeController extends BaseController {
 	public function doSignup() {
 	   return View::make('signup');
 	}
+
+
 }

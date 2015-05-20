@@ -19,6 +19,9 @@ class FilesController extends \BaseController {
 		echo '<br><br>';
 		$fileInfo = $this->dropboxGetFileContent('/Bodokocananhgoc.png','pic.png');
 		var_dump($fileInfo);
+		echo '<br><br>';
+		$f = file_get_contents($fileInfo['localPath']);
+		echo $f;
 	}
 
 

@@ -13,18 +13,19 @@
 
 
 
-// route to process the form
-
-
-
 Route::get('/', array('uses' => 'HomeController@showHome'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');	
+Route::get('DClient','dropboxServiceInfo@getDropboxClient');
 Route::post('DClient','dropboxServiceInfo@uploadFile');
 Route::get('DDownload','dropboxServiceInfo@downloadFile');
-Route::get('/DClient','dropboxServiceInfo@getDropboxClient');
+
+Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
+Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
+
+
 Route::get('/GAuthStart','googleDriveServiceInfo@AuthStart');
 Route::get('/GAuthFinish','googleDriveServiceInfo@AuthFinish');
 Route::get('/GClient','googleDriveServiceInfo@getGoogleService');
@@ -38,3 +39,4 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 
 Route::get('/Test', array('uses' => 'FilesController@testClient'));
+Route::get('/GListFiles','googleDriveServiceInfo@getAllFiles');

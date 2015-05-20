@@ -16,17 +16,16 @@ class dropboxServiceInfo extends \BaseController {
 
 
 	public function __construct(){	
-		//session_start();
 
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
 		$dropboxSecret = "kefp7hysoeirdx6";
 		$RedirectUri = $this->getRedirectUri();//"https://gdmanager.local.com/DAuthFinish";
+		
 		$this->csrfTokenStore = new Dropbox\ArrayEntryStore($_SESSION, 'dropbox-auth-csrf-token');
 		$this->appInfo =new Dropbox\AppInfo($dropboxKey, $dropboxSecret);/*::loadFromJsonFile($ROOT.'/dropbox-key.json');*/
 		$this->appName = "GDManager";
-
 		$this->webAuth = new Dropbox\WebAuth($this->appInfo, $this->appName, $RedirectUri, $this->csrfTokenStore);
 	}
 
@@ -72,7 +71,6 @@ class dropboxServiceInfo extends \BaseController {
 	}
 
 	public function AuthFinish(){
-
 		$data = $_GET;
 		$WA = $this->webAuth;
 		list($accessToken, $uid) = $WA->finish($data);
@@ -132,12 +130,8 @@ class dropboxServiceInfo extends \BaseController {
 		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
 			fclose($f);
 			print_r($result);
-			//return Redirect::to('/DClient');
-
 			
-			Redirect::to('/DClient');
-		}
-		catch(Dropbox\Exception_InvalidAccessToken $e){
+		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
@@ -148,7 +142,5 @@ class dropboxServiceInfo extends \BaseController {
 			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "a+"));
 			print_r($fileMetadata);
 	}
-
-
 
 }
