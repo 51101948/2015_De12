@@ -6,8 +6,9 @@ class googleDriveServiceInfo extends \BaseController {
 	private $service;
 	
 	public function __construct(){
-		/*session_start();
-		Session::put('user_id',1);*/
+		if(!isset($_SESSION))
+			session_start();
+		
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');
@@ -99,39 +100,32 @@ class googleDriveServiceInfo extends \BaseController {
 		else{ 
 			$Client = new Google_Client();
 			$Client->setAccessToken($strAccess);
-			$Client->setUseObjects(true);
 			$Gservice = new Google_Service_Drive($Client);
 			$this->service = $Gservice;
-			return $Gservice;
 		}
 
 	}
 
-	public function getAllFiles(){
-		/*$Gservice = $this->service;
-		$result = array();
-		$pageToken = NULL;
-
-		do{
-			try{
-				$parameters = array();
-				if($pageToken){
-					$parameters['pageToken']=$pageToken;
-				}
-				$files = $service->files->listFiles($parameters);
-
-				$result = array_merge($result, $files->getItems());
-				$pageToken = $files->getNextPageToken();
-			} catch (Exception $e){
-				echo "An error occurred: " . $e->getMessage();
-				$pageToken=NULL;
+	public function getAllFiles($Gservice, $f_id){
+		$children = $Gservice->children->get($f_id, array());
+		$items=$children['items'];
+		foreach($items as $item){
+			$params = array();
+			$data;
+			$id=$item['id'];
+			$file = $Gservice->files->get($id, $params);
+			//var_dump($file->getMimeType)
+			if ($file->getMimeType()===self::FOLDER){
+				echo $file->getTitle();
+				echo ' CO : <br>';
+				$this->getAllFiles($Gservice, $id);
 			}
-		} while($pageToken);
-		var_dump($result);*/
-
-		$Gservice = $this->getGoogleService();
-		$parentFolder = $Gservice->getRootFolderId();
-		echo $parentFolder;
+			else{
+				echo $id."                 ";
+				echo $file->getTitle();
+				echo '<br>';
+			}
+		}
 	}
 
 }

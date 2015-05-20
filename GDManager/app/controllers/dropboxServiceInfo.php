@@ -1,6 +1,6 @@
 <?php
 
-class dropboxServiceInfo extends \BaseController {
+class dropboxServiceInfo extends BaseController {
 
 	private $webAuth;
 	private $appInfo;
@@ -15,8 +15,10 @@ class dropboxServiceInfo extends \BaseController {
 
 
 
-	public function __construct(){	
-
+	public function __construct(){
+		if(!isset($_SESSION))
+			session_start();
+		
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -130,7 +132,26 @@ class dropboxServiceInfo extends \BaseController {
 		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
 			fclose($f);
 			print_r($result);
-			
+
+			return $client;
+			//return $folderMetadata;
+
+			/*			print_r($folderMetadata);
+
+					foreach ($folderMetadata['body']->contents as $fileObject) {
+			     	 $fileName = basename($fileObject->path);
+			      	$fileSize = $fileObject->size;
+			      	$fullFileName = $fileObject->path;
+			      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
+			                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
+			  }
+						//var_dump($clientInfo);
+						echo "<br><br>";
+						//var_dump($_SERVER);
+
+						return folderMetadata;
+			*/	
+
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}

@@ -1,8 +1,10 @@
 
+
 <?php include (base_path('app/views/header.blade.php')); ?>
 @if (Session::has('flash_message'))
 {{ Session::get('flash_message') }}
 @endif
+
 {{ Form::open(array('url' => 'login', 'class'=>'form-signin')) }}
 <h1>Login</h1>
 

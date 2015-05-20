@@ -70,8 +70,7 @@
 							        echo '<li><a href="/logout"><span>Log Out</span></a></li>';
 							    } 
 							?>
-					        
-					        
+							
 					      </ul>
 					    </div><!-- /.navbar-collapse -->
 					  </div><!-- /.container-fluid -->

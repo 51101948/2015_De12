@@ -6,7 +6,9 @@ class FilesController extends \BaseController {
 	private $DClient;
 
 	public function __construct(){
-		session_start();
+		if(!isset($_SESSION))
+			session_start();
+
 		$G = new googleDriveServiceInfo();
 		$D = new dropboxServiceInfo();
 		$this->DClient = $D->getClient();
