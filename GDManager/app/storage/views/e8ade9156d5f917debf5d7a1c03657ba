@@ -5,18 +5,68 @@
 	<div class="section">
 		<div class="selection">
 			Choose: &nbsp; &nbsp;
-			<button id="Dchoose" class="btn btn-lg btn-primary" disabled="disabled">DManager</button>
+			<button id="Dchoose" class="btn btn-lg btn-primary">DManager</button>
 			<button id="Gchoose" class="btn btn-lg btn-primary">GManager</button>
 		</div>
 		<hr>
-		<div class="gManager">						
+		<div class="gManager">
+		<div>
+				Path: 
+				<input  id="GpathVal" type = "text">
+			</div>
+		<?php if(isset($Gclient)): ?>
+			<?php
+					function showGFolder($Gclient, $id){					
+						$children = $Gclient->children->listChildren($id, array());
+						$items = $children['items'];
+						foreach ($items as $item) {
+							$params = array();
+							$data;
+							$Item_id=$item['id'];
+							$file = $Gclient->files->get($Item_id, $params);
+							$mimeType = $file->getMimeType();
+
+
+							if($mimeType === 'application/vnd.google-apps.folder'){
+								?>
+								<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> 
+								&nbsp; &nbsp; &nbsp;<a class="folder" > <?php echo $file->getTitle().'<br>'; ?> </a>
+								<div class="subfolder" >
+								<?php
+
+								showGFolder($Gclient, $Item_id);
+								?>
+								</div>
+								<?php
+							}
+							else{
+							?>
+								
+								<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;<a class="file"  href="#"> <?php echo $file->getTitle().'<br>'; ?></a> 
+							<?php
+							}
+						}
+					}
+
+				?>
+			<?php showGFolder($Gclient, 'root'); ?>
+		<?php endif; ?>				
+
+		<form method="post" action="/GUpload" name="submit" enctype="multipart/form-data">
+			  <input type="file" id="Gfilename" name="GfileField" style="display: inline-block">
+			  <input type="text" id="Gfilepath" name="Gpath" style="display: none" >
+			  <input type="text" id="Gname" name="Gname" style="display: none" >
+			  <button type="submit" id="Gtestbtn" name="submit">Upload</button>
+		</form>
+				
+					
 		</div>
 		<div class="dManager">
 			<div>
 				Path: 
 				<input  id="pathVal" type = "text">
 			</div>
-			<ul>
+			<div>
 				<?php if(isset($client)): ?>
 				<?php
 					function showFolder($content, $client, $x,$y){					
@@ -63,7 +113,7 @@
 
 
 					<?php endif; ?>
-    		</ul>
+    		</div>
 
     		
 			<form method="post" action="/DClient" name="submit" enctype="multipart/form-data">

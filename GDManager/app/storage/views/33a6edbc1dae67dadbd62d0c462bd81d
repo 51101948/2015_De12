@@ -1,9 +1,11 @@
 
+
 <?php include (base_path('app/views/header.blade.php')); ?>
 <?php if(Session::has('flash_message')): ?>
 <?php echo Session::get('flash_message'); ?>
 
 <?php endif; ?>
+
 <?php echo Form::open(array('url' => 'login', 'class'=>'form-signin')); ?>
 
 <h1>Login</h1>

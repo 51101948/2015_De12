@@ -4,6 +4,14 @@ class googleDriveServiceInfo extends \BaseController {
 	private $client;
 	private $redirectUri;
 	private $service;
+
+	const  FOLDER = 'application/vnd.google-apps.folder';
+	const  PDF = 'application/pdf';
+	const  DOC = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+	const  JPG = 'image/jpeg';
+	const  XLS = 'application/vnd.google-apps.spreadsheet';
+	const  FORM = 'application/vnd.google-apps.form';
+	const  RAR = 'application/rar';
 	
 	public function __construct(){
 		if(!isset($_SESSION))
@@ -12,18 +20,32 @@ class googleDriveServiceInfo extends \BaseController {
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
 		$tmpClient->setClientSecret('Bm1CiTT2VR5DtDEcRGAr7elf');
-		$tmpClient->addScope('https://www.googleapis.com/auth/drive.file',
-						    'https://www.googleapis.com/auth/drive.readonly',
-						    'https://www.googleapis.com/auth/drive.metadata.readonly',
-						    'https://www.googleapis.com/auth/drive.appdata',
-						    'https://www.googleapis.com/auth/drive.apps.readonly',
-						    "https://www.googleapis.com/auth/drive",
-						    "https://www.googleapis.com/auth/drive.appfolder");
-		$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
+		$tmpClient->addScope('https://www.googleapis.com/auth/drive',
+	 						 'https://www.googleapis.com/auth/drive.file',
+							 'https://www.googleapis.com/auth/drive.readonly',
+							 /*'https://www.googleapis.com/auth/drive.metadata.readonly',*/
+							 'https://www.googleapis.com/auth/drive.appdata',
+							 'https://www.googleapis.com/auth/drive.metadata',
+							 'https://www.googleapis.com/auth/drive.apps.readonly',
+							 'https://www.googleapis.com/auth/drive.appfolder');
+		//$this->redirectUri="http://".$_SERVER['SERVER_NAME']."/GAuthFinish";
 		/*$this->redirectUri="http://localhost";*/
-		$tmpClient->setRedirectUri($this->redirectUri);
+		$tmpClient->setRedirectUri($this->getRedirectUri());
 		$this->client=$tmpClient;/*createAuthUrl*/
-	}	
+	}
+	
+	private function getRedirectUri(){
+		$result = "";
+		if(isset($_SERVER['HTTPS'])){
+			if($_SERVER['HTTPS']=="on"){
+				$resutl = "https://" . $_SERVER['HTTP_HOST'] . "/GAuthFinish";
+				return $resutl;
+			}
+		}
+		else{
+			return $result = "http://" . $_SERVER['HTTP_HOST'] . "/GAuthFinish";
+		}
+	}
 
 	public function AuthStart(){
 		$authUrl = $this->client->createAuthUrl();
@@ -52,8 +74,7 @@ class googleDriveServiceInfo extends \BaseController {
 		} else{
 			echo "something went wrong. please contact to DB Manager";
 		}
-		$URL = 'http://'.$_SERVER['SERVER_NAME'].'/GClient';
-		return Redirect::to($URL);
+		return Redirect::to('/GClient');
 
 	}
 
@@ -77,6 +98,14 @@ class googleDriveServiceInfo extends \BaseController {
 		else{ 
 			$Client = new Google_Client();
 			$Client->setAccessToken($strAccess);
+			$Client->addScope('https://www.googleapis.com/auth/drive',
+	 						 'https://www.googleapis.com/auth/drive.file',
+							 'https://www.googleapis.com/auth/drive.readonly',
+							 /*'https://www.googleapis.com/auth/drive.metadata.readonly',*/
+							 'https://www.googleapis.com/auth/drive.appdata',
+							 'https://www.googleapis.com/auth/drive.metadata',
+							 'https://www.googleapis.com/auth/drive.apps.readonly',
+							 'https://www.googleapis.com/auth/drive.appfolder');
 			return $Client;
 		}
 	}
@@ -100,14 +129,29 @@ class googleDriveServiceInfo extends \BaseController {
 		else{ 
 			$Client = new Google_Client();
 			$Client->setAccessToken($strAccess);
+			$Client->addScope('https://www.googleapis.com/auth/drive',
+	 						 'https://www.googleapis.com/auth/drive.file',
+							 'https://www.googleapis.com/auth/drive.readonly',
+							 /*'https://www.googleapis.com/auth/drive.metadata.readonly',*/
+							 'https://www.googleapis.com/auth/drive.appdata',
+							 'https://www.googleapis.com/auth/drive.metadata',
+							 'https://www.googleapis.com/auth/drive.apps.readonly',
+							 'https://www.googleapis.com/auth/drive.appfolder');
 			$Gservice = new Google_Service_Drive($Client);
-			$this->service = $Gservice;
+			return Redirect::to('/');
 		}
+	}
+
+	public function showAllFile(){
+		$client = $this->getClient();
+		$service = new Google_Service_Drive($client);
+		$this->getAllFiles($service, 'root');
 
 	}
 
+
 	public function getAllFiles($Gservice, $f_id){
-		$children = $Gservice->children->get($f_id, array());
+		$children = $Gservice->files->listFiles(array());//($f_id, array());
 		$items=$children['items'];
 		foreach($items as $item){
 			$params = array();
@@ -118,7 +162,7 @@ class googleDriveServiceInfo extends \BaseController {
 			if ($file->getMimeType()===self::FOLDER){
 				echo $file->getTitle();
 				echo ' CO : <br>';
-				$this->getAllFiles($Gservice, $id);
+				//$this->getAllFiles($Gservice, $id);
 			}
 			else{
 				echo $id."                 ";
@@ -126,6 +170,7 @@ class googleDriveServiceInfo extends \BaseController {
 				echo '<br>';
 			}
 		}
+		var_dump($children);
 	}
 
 }

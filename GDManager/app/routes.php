@@ -13,7 +13,7 @@
 
 
 
-Route::get('/', array('uses' => 'HomeController@showHome'));
+Route::get('/home', array('uses' => 'FilesController@makeHome'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
@@ -25,18 +25,18 @@ Route::get('DDownload','dropboxServiceInfo@downloadFile');
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
 
-
 Route::get('/GAuthStart','googleDriveServiceInfo@AuthStart');
 Route::get('/GAuthFinish','googleDriveServiceInfo@AuthFinish');
 Route::get('/GClient','googleDriveServiceInfo@getGoogleService');
-Route::get('/GListFiles','googleDriveServiceInfo@getAllFiles');
-
+Route::get('/GListFiles','googleDriveServiceInfo@showAllFile');
 
 Route::get('signup', array('uses' => 'HomeController@doSignup'));
 Route::post('signup', array('uses' => 'UsersController@userCreate'));
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 Route::post('login', array('uses' => 'HomeController@doLogin'));
 
+Route::get('/', array('uses' => 'HomeController@showHome'));
+Route::post('/GUpload', array('uses'=>'FilesController@googleUploadFileContent'));
 
-Route::get('/Test', array('uses' => 'FilesController@testClient'));
-Route::get('/GListFiles','googleDriveServiceInfo@getAllFiles');
+
+

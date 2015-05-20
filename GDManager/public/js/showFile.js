@@ -31,16 +31,28 @@ $(document).ready(function(){
 	});
 
 	$("#Dchoose").click(function(){
+		
 		$(".dManager").show();
 		$(".gManager").hide();
 		$("#Dchoose").attr("disabled", true);
 		$("#Gchoose").attr("disabled", false);
+		
 
 	});
 	$("#Gchoose").click(function(){
+		
 		$(".gManager").show();
 		$(".dManager").hide();
 		$("#Gchoose").attr("disabled", true);
 		$("#Dchoose").attr("disabled", false);
+		
 	});
 });
+
+$("#Gtestbtn").click(function(){
+		alert( $("input#GpathVal").val() + "/" + $("input#Gfilename").val() );
+		$("input#Gfilepath").val($("input#GpathVal").val() + "/" + $("input#Gfilename").val());
+		alert($("input#Gfilepath").val());
+		$("input#Gname").val($("input#Gfilename").val());
+	});
+

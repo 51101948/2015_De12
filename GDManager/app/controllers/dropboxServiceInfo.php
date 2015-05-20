@@ -55,7 +55,7 @@ class dropboxServiceInfo extends BaseController {
 			$this->client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			return $this->client;
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
-			return Redirect::to('/DAuthStart');
+			return Redirect::to('/GAuthStart');
 		}
 	}
 
@@ -92,7 +92,7 @@ class dropboxServiceInfo extends BaseController {
 			echo "something went wrong. please contact to DB Manager";
 		}
 
-		return Redirect::to('/DClient');
+		return Redirect::to('/GAuthStart');
 	}
 
 	public function getDropboxClient(){
