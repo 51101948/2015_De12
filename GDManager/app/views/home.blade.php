@@ -23,7 +23,6 @@
 					
 					if($content['is_dir']){				
 				?>			
-				
 					<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> 				
 
     &nbsp; &nbsp; &nbsp;<a class="folder" id={{ $content['path'] }}> {{ substr($content['path'].'<br>', $x+1)  }} </a>
@@ -45,7 +44,10 @@
 					}
 					else{
 				?>
-						<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;<a class="file"  href="#"> {{ substr($content['path'].'<br>', $x+1) }}</a> 
+						<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+						&nbsp; &nbsp; &nbsp;
+						<a class="file"  href="javascript:void(0)"> {{ substr($content['path'].'<br>', $x+1) }}</a> 
+						&nbsp; &nbsp; &nbsp;<div class="transfer"  style="display:none"><span class="glyphicon glyphicon-send" aria-hidden="true"></div><br>
 				<?php
 					}
 					 

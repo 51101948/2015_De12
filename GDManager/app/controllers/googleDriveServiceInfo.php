@@ -14,6 +14,9 @@ class googleDriveServiceInfo extends \BaseController {
 	const RAR = 'application/rar';
 
 	public function __construct(){
+		session_start();
+
+		Session::put('user_id', 1);
 
 		$tmpClient = new Google_Client();
 		$tmpClient->setClientId('517840277924-5mel67o1r46o48t37hko3kntrqfm3gt7.apps.googleusercontent.com');
@@ -92,6 +95,7 @@ class googleDriveServiceInfo extends \BaseController {
 		
 		$url = 'https://www.googleapis.com/oauth2/v1/tokeninfo?access_token='.$AccessToken;
     	$temp = curl_init($url);
+    	var_dump(Session::get('user_id'));
 		//curl_setopt($temp, CURLOPT_POST, 1);
 		//curl_setopt($temp, CURLOPT_FOLLOWLOCATION, 1);
 		curl_setopt($temp, CURLOPT_HEADER, 0);
