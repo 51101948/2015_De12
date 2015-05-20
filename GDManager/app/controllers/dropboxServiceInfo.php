@@ -6,8 +6,16 @@ class dropboxServiceInfo extends \BaseController {
 	private $appInfo;
 	private $appName;
 	private $csrfTokenStore;
+	public function token()
+  {
+    return csrf_token();
+  }
 
-	public function __construct(){
+
+
+	public function __construct(){	
+		session_start();
+
 		$APPDIR = dirname(__DIR__);
 		$ROOT = dirname($APPDIR);
 		$dropboxKey = "06ns3j97428llck";
@@ -16,8 +24,10 @@ class dropboxServiceInfo extends \BaseController {
 		$this->csrfTokenStore = new Dropbox\ArrayEntryStore($_SESSION, 'dropbox-auth-csrf-token');
 		$this->appInfo =new Dropbox\AppInfo($dropboxKey, $dropboxSecret);/*::loadFromJsonFile($ROOT.'/dropbox-key.json');*/
 		$this->appName = "GDManager";
+
 		$this->webAuth = new Dropbox\WebAuth($this->appInfo, $this->appName, $RedirectUri, $this->csrfTokenStore);
 	}
+
 
 	private function getRedirectUri(){
 		$result = "";
@@ -32,10 +42,19 @@ class dropboxServiceInfo extends \BaseController {
 		}
 	}
 	public function AuthStart(){
+
+		if( null == (Session::get('user_id'))){
+			return Redirect::to('login')->withFlashMessage('You mush login before view this page');
+		}
+
+		else{
+
 		$WA = $this->webAuth;
 		return Redirect::to($WA->start());
-	}
+	} 
+}
 	public function AuthFinish(){
+
 		$data = $_GET;
 		$WA = $this->webAuth;
 		list($accessToken, $uid) = $WA->finish($data);
@@ -69,7 +88,7 @@ class dropboxServiceInfo extends \BaseController {
 		try{
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
-
+			//var_dump($client->getMetadataWithChildren("/"));
 		
 			return  View::make('home')->with( 'client',$client );
 
@@ -116,7 +135,7 @@ class dropboxServiceInfo extends \BaseController {
 		$info = DBoxInfo::where('user_id',Session::get('user_id'))->get()->first();
 		$count = DBoxInfo::where('user_id',Session::get('user_id'))->get()->count();
 		$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
-			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "wb"));
+			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "a+"));
 			print_r($fileMetadata);
 	}
 

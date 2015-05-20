@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(this).next(".subfolder").toggle();
 		$(this).prev().toggleClass( 'glyphicon-folder-open', 'glyphicon-folder-close');
 		$("input#pathVal").val($(this).attr("id"));
+		
 	});
 
 	$("#testbtn").click(function(){
@@ -27,5 +28,19 @@ $(document).ready(function(){
 */
 	
 
-});
 	});
+
+	$("#Dchoose").click(function(){
+		$(".dManager").show();
+		$(".gManager").hide();
+		$("#Dchoose").attr("disabled", true);
+		$("#Gchoose").attr("disabled", false);
+
+	});
+	$("#Gchoose").click(function(){
+		$(".gManager").show();
+		$(".dManager").hide();
+		$("#Gchoose").attr("disabled", true);
+		$("#Dchoose").attr("disabled", false);
+	});
+});

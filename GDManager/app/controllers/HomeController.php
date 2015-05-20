@@ -19,7 +19,7 @@ class HomeController extends BaseController {
 	{
 		//var_dump(Session::get('user_id'));
 		if( null == (Session::get('user_id'))){
-			return Redirect::to('login');
+			return Redirect::to('login')->withFlashMessage('You mush login before view this page');
 		}
 		else{
 			return View::make('home');
@@ -66,17 +66,18 @@ class HomeController extends BaseController {
 	    if (Auth::attempt($userdata)) {
 	       	$user = User::where('email',$userdata['email'])->get()->first();
 	       	$id=$user->user_id;
+	       	session_start();
 	       	Session::put('user_id', $id);
 	    	// validation successful!
 	        // redirect them to the secure section or whatever
 	        // return Redirect::to('secure');
 	        // for now we'll just echo success (even though echoing in a controller is bad)
-	        return Redirect::to('/DAuthStart')->with('message', 'Login Success');
+	        return Redirect::to('/DAuthStart');
 
 	    } else {        
 	    	//var_dump(Auth::attempt($userdata));
 	        // validation not successful, send back to form 
-	        return Redirect::to('login')->with('message', 'Login Failed');
+	        return Redirect::to('login')->withFlashMessage('Invalid email or password!!!');
 
 	    }
 
