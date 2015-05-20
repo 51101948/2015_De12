@@ -1,0 +1,65 @@
+ @foreach ($folderMetadata['contents'] as $content) 
+
+			<?php $x = strlen($content['path']); ?>	
+			
+			@if($content['is_dir']===true)
+				<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> &nbsp; &nbsp; &nbsp;<a class="folder"> {{ ltrim ($content['path'] , '/') }}
+				</a>
+			
+				
+				@if (is_array($subfolder))				
+					
+					<div class = "subfolder" style ="display:none">
+						@foreach($subfolder['contents'] as $subcontent )
+							 <span class="glyphicon glyphicon-folder-open" aria-hidden="true"> </span>&nbsp; &nbsp; &nbsp;<a>{{ substr( $subcontent['path'] , $x + 1 ) }}</a>
+							<br>
+						@endforeach	
+					</div>
+					
+				@endif
+
+			@else
+				
+			@endif
+				<br><br>
+							
+		@endforeach 
+
+
+		<?php $folderMetadata = $client->getMetadataWithChildren("/");  ?>
+				@foreach ($folderMetadata['contents'] as $c)
+					@if($c['is_dir'])
+						<?php showFolder($c, $client); ?>
+					@endif
+
+				@endforeach 
+
+
+<?php
+	function showChildren($client, $folder){
+		foreach ($folder['contents'] as $content) {
+			if($content['is_dir']){
+				return showChildren($client, $content);
+			}
+			else {
+				echo $content['path'];
+			}
+		}
+	}
+?>
+
+<?php
+				function showChildren($client, $folder){
+					//var_dump($folder['contents']);
+					foreach ($folder['contents'] as $content) {
+						if($content['is_dir']){
+							$subfolder = $client->getMetadataWithChildren($content['path']);
+							/*return */showChildren($client, $subfolder);
+						}
+						else {
+							echo $content['path'];
+
+						}
+					}
+				}
+				?>

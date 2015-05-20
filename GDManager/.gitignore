@@ -5,3 +5,10 @@ composer.phar
 .env.php
 .DS_Store
 Thumbs.db
+<<<<<<< HEAD
+/app/storage/sessions/
+=======
+/storage/logs
+/storage/sessions
+/config/database.php
+>>>>>>> 33be5b03234819cf8d4f1ef579bc34a2488fc38a
