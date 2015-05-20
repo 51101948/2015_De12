@@ -79,19 +79,14 @@
 			display: inline-block;
 		}
 		.gManager, .dManager {
-			height: 200px;
-			-webkit-filter: blur(5px);
-			-moz-filter: blur(5px);
-			-o-filter: blur(5px);
-			-ms-filter: blur(5px);
-			filter: blur(5px);
+			text-align: left;		
 		}
 		.gManager {
-			background-image: url("http://www.blogcdn.com/www.engadget.com/media/2013/03/google-drive-masthead-620.jpg");
+			
 			background-size: 100% 100%; 
 		}
 		.dManager {
-			background-image: url("http://www.maximumpc.com/files/u160391/dropbox.png");
+			
 			background-size: 100% 100%; 
 		}
 		.preview {

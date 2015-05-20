@@ -79,3 +79,12 @@
 			height: 50px;
 			background-color: #333333;
 		}
+		.subfolder {
+			margin-left: 30px;
+		}
+		.subfolder > a:visited, .folder > a:visited {
+			color: black;
+		}
+		.glyphicon-folder-open {
+			color: #FF9900;
+		}

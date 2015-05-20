@@ -4,4 +4,5 @@
 	</div>
 </div>
 </body>
+<?php echo HTML::script('js/showFile.js'); ?>
 </html>

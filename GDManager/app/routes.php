@@ -27,6 +27,8 @@ Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');
 
 /*Route::get(function(){
 },'dropboxServiceInfo@AuthFinish')*/
+Route::post('DClient','dropboxServiceInfo@uploadFile');
+Route::get('DDownload','dropboxServiceInfo@downloadFile');
 
 Route::get('/DClient','dropboxServiceInfo@getDropboxClient');
 

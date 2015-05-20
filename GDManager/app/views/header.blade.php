@@ -11,6 +11,7 @@
 	<!-- Optional theme -->
 	<?php echo HTML::style('css/bootstrap-theme.min.css'); ?>
 	<?php echo HTML::style('css/style.css'); ?>
+	
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	
@@ -62,7 +63,13 @@
 					      </form>
 					      <ul class="nav navbar-nav navbar-right">
 					        <li><a href="#">Profile</a></li>					   
-					        <li><a href="/logout">Sign out</a></li>
+					        <?php   
+							    if(null == (Session::get('user_id'))) {
+							        echo '<li><a href="/signup"><span>Sign Up</span></a></li><li><a href="/login"><span>Log In</span></a></li>';
+							    } else {
+							        echo '<li><a href="/logout"><span>Log Out</span></a></li>';
+							    } 
+							?>
 					        
 					        
 					      </ul>
