@@ -106,12 +106,12 @@ class googleDriveServiceInfo extends \BaseController {
 			$Gservice = new Google_Service_Drive($Client);
 			
 
-			/*$this->getAllFiles($Gservice, 'root');*/
+			$this->getAllFiles($Gservice, 'root');
 			//$children = $Gservice->children->get('0B-A0IKSrpg6VaXRadTI1M3BFR00', array());
 			//echo self::FOLDER;
 			//$this->getAllFiles($Gservice,'0B-A0IKSrpg6VaXRadTI1M3BFR00');
 			
-			$f_content = file_get_contents(base_path('app/exercise1.docx'));
+			/*$f_content = file_get_contents(base_path('app/exercise1.docx'));
 			echo $f_content.'<br><br>';
 
 			$file = $Gservice->files->get('0B-A0IKSrpg6VT1YwUG9tV1phNHM', array());
@@ -128,7 +128,7 @@ class googleDriveServiceInfo extends \BaseController {
 			}
 			else{
 				echo "<br><br>NOI NO DUNG GIONG NHAU";	
-			}
+			}*/
 
 			/*$params = array();
 			$data;

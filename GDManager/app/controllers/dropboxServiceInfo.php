@@ -80,12 +80,6 @@ class dropboxServiceInfo extends \BaseController {
 		try{
 			$client = new Dropbox\Client($info->token, $this->appName, 'UTF-8');
 			$clientInfo = $client->getAccountInfo();
-<<<<<<< HEAD
-			
-=======
-			//var_dump($client->getMetadataWithChildren("/"));
-		
->>>>>>> origin/NPVinhLoc
 			return  View::make('home')->with( 'client',$client );
 
 
