@@ -75,6 +75,7 @@
 			width: 100%;
 		}
 		.section {
+			margin-left: 20px;
 			padding: 15px;
 			width: 35%;
 			display: inline-block;
@@ -129,4 +130,7 @@
 		}
 		a:hover {
 			text-decoration: none;
+		}
+		.file, .transfer {
+			display: inline-block;
 		}

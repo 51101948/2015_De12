@@ -13,21 +13,6 @@ $(document).ready(function(){
 		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
 		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
 		alert($("input#filepath").val());
-		//alert($("input#filename").mozFullPath);
-		//var tmpPath = URL.createObjectURL();
-		//alert(tmpPath);
-		/*var data = { path: $("input#pathVal").val() + "/" + $("input#filename").val() };
-		 $.ajax({
-        type: 'POST',
-        url: '/DClient',
-        data: data,
-        success: function(data){
-            alert('successful');
-        	location.reload();
-        }
-*/
-	
-
 	});
 
 	$("#Dchoose").click(function(){
@@ -42,5 +27,9 @@ $(document).ready(function(){
 		$(".dManager").hide();
 		$("#Gchoose").attr("disabled", true);
 		$("#Dchoose").attr("disabled", false);
+	});
+
+	$(".file").click(function(){
+		$(this).next(".transfer").toggle();
 	});
 });
