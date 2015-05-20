@@ -69,7 +69,12 @@
 							    } else {
 							        echo '<li><a href="/logout"><span>Log Out</span></a></li>';
 							    } 
+<<<<<<< HEAD
 							?>
+=======
+							?> 
+							
+>>>>>>> 06ea9990bc7861d453cf888cbf9033f0fe0f3bd1
 					        
 					        
 					      </ul>
