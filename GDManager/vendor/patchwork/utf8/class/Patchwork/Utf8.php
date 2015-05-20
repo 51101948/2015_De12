@@ -566,13 +566,7 @@ class Utf8
 
     static function ucwords($s)
     {
-        return preg_replace_callback(
-            "/\b(.)/u",
-            function ($matches) {
-                return mb_convert_case($matches[1], MB_CASE_TITLE, 'UTF-8');
-            },
-            $s
-        );
+        return mb_convert_case($s, MB_CASE_TITLE, 'UTF-8');
     }
 
     static function number_format($number, $decimals = 0, $dec_point = '.', $thousands_sep = ',')

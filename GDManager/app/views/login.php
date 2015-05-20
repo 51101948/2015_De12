@@ -26,10 +26,6 @@
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
-  <script type="text/javascript">var jqxhr = $.getJSON( "dropboxServiceInfo.php", function() {
-    console.log( "success" );
-} )</script>
-  
 </div>
 
 </body>
