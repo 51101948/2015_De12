@@ -10,12 +10,7 @@ $(document).ready(function(){
 	});
 
 	$("#testbtn").click(function(){
-		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
 		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
-		alert($("input#filepath").val());
-		
-	
-
 	});
 
 
@@ -56,24 +51,9 @@ $(document).ready(function(){
 });
 
 $("#Gtestbtn").click(function(){
-		alert( $("input#GpathVal").val() + "/" + $("input#Gfilename").val() );
 		$("input#Gfilepath").val($("input#GpathVal").val() + "/" + $("input#Gfilename").val());
-		alert($("input#Gfilepath").val());
 		$("input#Gname").val($("input#Gfilename").val());
 	});
-
-/*$("button#DDownload").click(function(){
-		var Dpath=$("input#pathVal").val() + "/" + $("input#filename").val()
-	    $.post('/test',
-	    {
-	        path: Dpath
-	        
-	    },
-	    function($result)
-		{
-			$("a#DDownloadURL").attr("href", $result);
-		});
-});*/
 
 	$(".file").click(function(){
 		$(this).next(".transfer").toggle();
@@ -82,33 +62,15 @@ $("#Gtestbtn").click(function(){
 
 		$("input#subfilename").val($(this).attr("name"));
 
-		var Dpath=$("input#pathVal").val() + "/" + $("input#filename").val();
-		
+		var Dpath=$("input#DSFpath").val();
 		$.post('/test',
 	    {
 	        path: Dpath
 	        
 	    },
-	    function($result)
+	    function(result)
 		{
-			alert($result);
-			$("a#DDownloadURL").attr("href", $result);
+			$("a#DDownloadURL").attr("href", result);
 		});
 
 	});
-
-
-
-/*
-	("button#deleteFile").click(function(){
-		 var IdDel=$("input#Gfilepath").val();
-	    $.post('/Delete',
-	    {
-	        id: IdDel
-	        
-	    },
-	    function($result)
-		{
-			alert ($result);
-		});
-	});*/
