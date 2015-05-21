@@ -37,6 +37,11 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 Route::get('/', array('uses' => 'HomeController@showHome'));
 Route::post('/GUpload', array('uses'=>'FilesController@googleUploadFileContent'));
+/*Route::post('/Test','FilesController@MoveDroptoGDrive');*/
+Route::post('/MovetoDrop','FilesController@MoveGDrivetoDrop');
+
+Route::post('/test','FilesController@test');
+
 
 
 

@@ -15,6 +15,47 @@ class FilesController extends \BaseController {
 		$this->GClient = $G->getClient();
 	}
 
+	public function test(){
+		$path = $_POST['path'];
+		return $this->dropboxDownloadFile($path);
+
+	}
+
+	public function dropboxDownloadFile($dropbox_path){
+		$download = $this->DClient->createShareableLink($dropbox_path);
+		$download = substr($download, 0, -1).'1';
+		return $download;
+	}
+
+	public function dropboxDeleteFile($dropbox_path){
+		$result = $this->DClient->delete($dropbox_path);
+	}
+
+	public function MoveDroptoGDrive()
+		{
+			$Fpath=$_POST['path'];
+			$Fname=$_POST['sfname'];
+			$driveFile = new Google_Service_Drive_DriveFile($this->GClient);
+			//var_dump($Fname);
+			$contentDrop=$this->dropboxGetFileContent($Fpath,$Fname);
+
+			$driveFile->setTitle($contentDrop['fileName']);
+			$driveFile->setMimeType($contentDrop['mimeType']);
+			$driveFile->setEditable(true);
+
+
+			try{
+
+			$DriveService = new Google_Service_Drive($this->GClient);
+			}
+			catch(Exception $e){
+				return Redirect::to('/GAuthStart');
+			}
+			$createdFile = $DriveService->files->insert($driveFile, array('data'=>$contentDrop['contents'],'uploadType'=>'media'));
+			return Redirect::to('home');
+
+		}
+
 	public function dropboxGetFileContent($dropbox_path, $filename){
 		$local_path = base_path('app/'.$filename);
 		$fileMetadata = $this->DClient->getFile($dropbox_path, fopen($local_path, "a+"));
@@ -43,6 +84,23 @@ class FilesController extends \BaseController {
 		}
 	}
 
+	
+
+	public function MoveGDrivetoDrop()
+	{
+		
+	
+		$GId=$_POST['GDrivepath'];
+		$GFileName=$_POST['GDrivename'];
+		$Gcontent=$this->googleGetFileContent($GId);
+		$Gpath='/'.$Gcontent['fileName'];
+		$this->dropboxUploadFileContent($Gpath,$Gcontent);
+	
+
+		return Redirect::to('home');
+
+	}
+	
 	public function googleGetFileContent($id){
 		try{
 		$DriveService = new Google_Service_Drive($this->GClient);
@@ -67,7 +125,6 @@ class FilesController extends \BaseController {
 		    }
 		}
 	}	
-
 	public function dropboxUploadFileContent($dropbox_path, $file_info){
 		$result = $this->DClient->uploadFileFromString($dropbox_path, Dropbox\WriteMode::add(), $file_info['contents']);
 		return $result;
@@ -106,19 +163,16 @@ class FilesController extends \BaseController {
 	public function DropboxUploadFile()
 	{
 		try{
-		$uploadPath = $_POST['path'];
-		$f = fopen($_FILES['fileField']['tmp_name'], "rb");
-		$content = file_get_contents($_FILES['fileField']['tmp_name']);
-		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
+			$uploadPath = $_POST['path'];
+			$f = fopen($_FILES['fileField']['tmp_name'], "rb");
+			$content = file_get_contents($_FILES['fileField']['tmp_name']);
+			$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
 			fclose($f);
-			print_r($result);
-
 			return Redirect::to('home');
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
 	}
-
 
 }

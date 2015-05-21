@@ -13,22 +13,28 @@ $(document).ready(function(){
 		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
 		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
 		alert($("input#filepath").val());
-		//alert($("input#filename").mozFullPath);
-		//var tmpPath = URL.createObjectURL();
-		//alert(tmpPath);
-		/*var data = { path: $("input#pathVal").val() + "/" + $("input#filename").val() };
-		 $.ajax({
-        type: 'POST',
-        url: '/DClient',
-        data: data,
-        success: function(data){
-            alert('successful');
-        	location.reload();
-        }
-*/
+		
 	
 
 	});
+
+
+
+
+		$("#DeleteFile").click(function()
+	{
+		
+		
+
+	});
+
+
+	$(".fileGDtive").click(function()
+	{
+		$(this).next(".transfertoDrop").toggle();
+		$("input#Gfilepath").val($(this).attr("id"));
+		$("input#Gfilename").val($(this).attr("name"));
+	})
 
 	$("#Dchoose").click(function(){
 		
@@ -56,3 +62,53 @@ $("#Gtestbtn").click(function(){
 		$("input#Gname").val($("input#Gfilename").val());
 	});
 
+/*$("button#DDownload").click(function(){
+		var Dpath=$("input#pathVal").val() + "/" + $("input#filename").val()
+	    $.post('/test',
+	    {
+	        path: Dpath
+	        
+	    },
+	    function($result)
+		{
+			$("a#DDownloadURL").attr("href", $result);
+		});
+});*/
+
+	$(".file").click(function(){
+		$(this).next(".transfer").toggle();
+		
+		$("input#subfilepath").val($(this).attr("id"));
+
+		$("input#subfilename").val($(this).attr("name"));
+
+		var Dpath=$("input#pathVal").val() + "/" + $("input#filename").val();
+		
+		$.post('/test',
+	    {
+	        path: Dpath
+	        
+	    },
+	    function($result)
+		{
+			alert($result);
+			$("a#DDownloadURL").attr("href", $result);
+		});
+
+	});
+
+
+
+/*
+	("button#deleteFile").click(function(){
+		 var IdDel=$("input#Gfilepath").val();
+	    $.post('/Delete',
+	    {
+	        id: IdDel
+	        
+	    },
+	    function($result)
+		{
+			alert ($result);
+		});
+	});*/

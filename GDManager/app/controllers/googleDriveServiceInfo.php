@@ -138,7 +138,7 @@ class googleDriveServiceInfo extends \BaseController {
 							 'https://www.googleapis.com/auth/drive.apps.readonly',
 							 'https://www.googleapis.com/auth/drive.appfolder');
 			$Gservice = new Google_Service_Drive($Client);
-			return Redirect::to('/');
+			return Redirect::to('/home');
 		}
 	}
 
