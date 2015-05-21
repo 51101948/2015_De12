@@ -11,10 +11,7 @@ $(document).ready(function(){
 
 
 	$("#testbtn").click(function(){
-		alert( $("input#pathVal").val() + "/" + $("input#filename").val() );
 		$("input#filepath").val($("input#pathVal").val() + "/" + $("input#filename").val());
-		alert($("input#filepath").val());	
-	
 
 	});
 
@@ -85,13 +82,17 @@ $(document).ready(function(){
 		
 	});
 
+<<<<<<< HEAD
 	$("#Gtestbtn").click(function(){
 		alert( $("input#GpathVal").val() + "/" + $("input#Gfilename").val() );
+=======
+$("#Gtestbtn").click(function(){
+>>>>>>> 2be2584b392c58b4cd450660466d10f8dc70484b
 		$("input#Gfilepath").val($("input#GpathVal").val() + "/" + $("input#Gfilename").val());
-		alert($("input#Gfilepath").val());
 		$("input#Gname").val($("input#Gfilename").val());
 	});
 
+<<<<<<< HEAD
 	
 
 	$("button#deleteFileDrop").click(function()
@@ -124,3 +125,24 @@ $("button#deleteFile").click(function(){
 	});
 
 	   
+=======
+	$(".file").click(function(){
+		$(this).next(".transfer").toggle();
+		
+		$("input#subfilepath").val($(this).attr("id"));
+
+		$("input#subfilename").val($(this).attr("name"));
+
+		var Dpath=$("input#DSFpath").val();
+		$.post('/test',
+	    {
+	        path: Dpath
+	        
+	    },
+	    function(result)
+		{
+			$("a#DDownloadURL").attr("href", result);
+		});
+
+	});
+>>>>>>> 2be2584b392c58b4cd450660466d10f8dc70484b

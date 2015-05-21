@@ -121,16 +121,23 @@
 							<form method="post" action="/MovetoGDrive" name="submit" enctype="multipart/form-data">							  
 							  <input type="text" id="subfilepath" name="path" style="display: none" >
 							  <input type="text" id="subfilename" name="sfname" style="display: none" >
+<<<<<<< HEAD
 							  <button type="submit" id="testbtn2" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
 
 							  	<button id="deleteFileDrop" type="button" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
 
 							  <a href="javascript:void(0)" id="DDownloadURL" target="_blank"><button type="button"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></button></a>
 
+=======
+
+							  <button type="submit" id="testbtn" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
+							  <a href="javascript:void(0)" id="DDownloadURL" target="_blank"><button><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></button></a>
+>>>>>>> 2be2584b392c58b4cd450660466d10f8dc70484b
 
 							</form>
 						<input type="text" id="DSFpath" name="path" value=<?php echo $content['path']; ?> style="display: none" >
 						</div><br>
+
 						<?php
 					}
 					 

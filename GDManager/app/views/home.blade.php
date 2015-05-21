@@ -120,6 +120,7 @@
 							<form method="post" action="/MovetoGDrive" name="submit" enctype="multipart/form-data">							  
 							  <input type="text" id="subfilepath" name="path" style="display: none" >
 							  <input type="text" id="subfilename" name="sfname" style="display: none" >
+
 							  <button type="submit" id="testbtn2" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
 
 							  	<button id="deleteFileDrop" type="button" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
@@ -127,9 +128,11 @@
 							  <a href="javascript:void(0)" id="DDownloadURL" target="_blank"><button type="button"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></button></a>
 
 
+
 							</form>
 						<input type="text" id="DSFpath" name="path" value={{$content['path']}} style="display: none" >
 						</div><br>
+
 						<?php
 					}
 					 
