@@ -173,6 +173,24 @@ public function googleGetFileContent($id){
 		}
 
 	}
+	public function DeleteFile()
+	{
+		var_dump($_POST['id']);
+		$DriveService = new Google_Service_Drive($this->GClient);
+		 try {
+		    $DriveService->files->delete($_POST['id']);
+		  } catch (Exception $e) {
+		    print "An error occurred: " . $e->getMessage();
+		  }
+		  $result="Lam cute";
+		  return $result;
+	}
+
+	public function DeleteFileDropbox()
+	{
+		 $this->DClient->delete($_POST['DropId']);
+		 return Redirect::to('/home');
+	}
 
 
 	

@@ -28,12 +28,7 @@ $(document).ready(function(){
 
 	});
 
-		$("#DeleteFile").click(function()
-	{
-		
-		
-
-	});
+	
 
 
 	$(".fileGDtive").click(function()
@@ -41,6 +36,7 @@ $(document).ready(function(){
 		$(this).next(".transfertoDrop").toggle();
 		$("input#Gfilepath").val($(this).attr("id"));
 		$("input#Gfilename").val($(this).attr("name"));
+
 	})
 
 	$("#Dchoose").click(function(){
@@ -69,3 +65,26 @@ $("#Gtestbtn").click(function(){
 		$("input#Gname").val($("input#Gfilename").val());
 	});
 
+$("button#deleteFile").click(function(){
+		 var IdDel=$("input#Gfilepath").val();
+	    $.post('/Delete',
+	    {
+	        id: IdDel
+	        
+	    },
+	    function(){
+	        alert("Delete File Google Drive successfully");
+	    });
+	});
+
+$("button#deleteFileDrop").click(function()
+{
+	var DelFileDrop=$("input#subfilepath").val();
+	$.post('/DelFileDrop',
+		{	DropId : DelFileDrop
+		},
+		function()
+		{
+			alert ("Delete file Dropbox succesfully");
+		});
+});
