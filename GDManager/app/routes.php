@@ -19,7 +19,7 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');	
 Route::get('DClient','dropboxServiceInfo@getDropboxClient');
-Route::post('DClient','dropboxServiceInfo@uploadFile');
+Route::post('/DUpload','dropboxServiceInfo@uploadFile');
 Route::get('DDownload','dropboxServiceInfo@downloadFile');
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');

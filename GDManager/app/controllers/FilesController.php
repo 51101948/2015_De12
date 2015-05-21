@@ -15,13 +15,6 @@ class FilesController extends \BaseController {
 		$this->GClient = $G->getClient();
 	}
 
-	public function testClient(){
-		$file_info = $this->googleGetFileContent($this->googleListFileByName('pic.png'));
-		$result = $this->dropboxUploadFileContent('/picccccccc.png',$file_info);
-		var_dump($result);
-	}
-
-
 	public function dropboxGetFileContent($dropbox_path, $filename){
 		$local_path = base_path('app/'.$filename);
 		$fileMetadata = $this->DClient->getFile($dropbox_path, fopen($local_path, "a+"));
@@ -113,39 +106,14 @@ class FilesController extends \BaseController {
 	public function DropboxUploadFile()
 	{
 		try{
-		/*$path = $_POST('path');*/
-		//var_dump($_POST['path']);
-		
-		
 		$uploadPath = $_POST['path'];
-		//var_dump($uploadPath);
 		$f = fopen($_FILES['fileField']['tmp_name'], "rb");
-		//var_dump($_FILES['fileField']['tmp_name']);
 		$content = file_get_contents($_FILES['fileField']['tmp_name']);
-		//echo $content;
 		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
 			fclose($f);
 			print_r($result);
 
-			return $client;
-			//return $folderMetadata;
-
-			/*			print_r($folderMetadata);
-
-					foreach ($folderMetadata['body']->contents as $fileObject) {
-			     	 $fileName = basename($fileObject->path);
-			      	$fileSize = $fileObject->size;
-			      	$fullFileName = $fileObject->path;
-			      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
-			                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
-			  }
-						//var_dump($clientInfo);
-						echo "<br><br>";
-						//var_dump($_SERVER);
-
-						return folderMetadata;
-			*/	
-
+			return Redirect::to('home');
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
