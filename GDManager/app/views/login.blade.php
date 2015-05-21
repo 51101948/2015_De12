@@ -1,6 +1,7 @@
 
 
 <?php include (base_path('app/views/header.blade.php')); ?>
+<br><br><br><br><br><br>
 @if (Session::has('flash_message'))
 {{ Session::get('flash_message') }}
 @endif
@@ -26,4 +27,5 @@
 
 <p>{{ Form::submit('Log in!' , array('class'=>'btn btn-primary')) }}</p>
 {{ Form::close() }}
+<br><br><br><br><br>
 <?php include (base_path('app/views/footer.blade.php')); ?>

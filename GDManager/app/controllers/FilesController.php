@@ -15,10 +15,22 @@ class FilesController extends \BaseController {
 		$this->GClient = $G->getClient();
 	}
 
-	public function testClient(){
-		$file_info = $this->googleGetFileContent($this->googleListFileByName('pic.png'));
-		$result = $this->dropboxUploadFileContent('/picccccccc.png',$file_info);
-		var_dump($result);
+	public function test(){
+		$path = $_POST['path'];
+		return $this->dropboxDownloadFile($path);
+
+	}
+
+	public function dropboxDownloadFile($dropbox_path){
+		$download = $this->DClient->createShareableLink($dropbox_path);
+		$download = substr($download, 0, -1).'1';
+		return $download;
+	}
+
+	public function dropboxDeleteFile($dropbox_path){
+		$this->DClient->delete($dropbox_path);
+		$result = "Delete file Dropbox succesfully";
+		return $return;
 	}
 
 	public function MoveDroptoGDrive()
@@ -36,15 +48,16 @@ class FilesController extends \BaseController {
 
 			try{
 
-		$DriveService = new Google_Service_Drive($this->GClient);
-		}
-		catch(Exception $e){
-			return Redirect::to('/GAuthStart');
-		}
-		$createdFile = $DriveService->files->insert($driveFile, array('data'=>$contentDrop['contents'],'uploadType'=>'media'));
-		return Redirect::to('home');
+			$DriveService = new Google_Service_Drive($this->GClient);
+			}
+			catch(Exception $e){
+				return Redirect::to('/GAuthStart');
+			}
+			$createdFile = $DriveService->files->insert($driveFile, array('data'=>$contentDrop['contents'],'uploadType'=>'media'));
+			return Redirect::to('home')->withFlashMessage('Moved Successfully');
 
 		}
+
 	public function dropboxGetFileContent($dropbox_path, $filename){
 		$local_path = base_path('app/'.$filename);
 		$fileMetadata = $this->DClient->getFile($dropbox_path, fopen($local_path, "a+"));
@@ -86,10 +99,11 @@ class FilesController extends \BaseController {
 		$this->dropboxUploadFileContent($Gpath,$Gcontent);
 	
 
-		return Redirect::to('home');
+		return Redirect::to('home')->withFlashMessage('Moved Successfully');
 
 	}
-public function googleGetFileContent($id){
+	
+	public function googleGetFileContent($id){
 		try{
 		$DriveService = new Google_Service_Drive($this->GClient);
 		}
@@ -129,7 +143,6 @@ public function googleGetFileContent($id){
 		$driveFile->setEditable(true);
 
 		$data = file_get_contents($_FILES['GfileField']['tmp_name']);
-		var_dump($data);
 
 		try{
 		$DriveService = new Google_Service_Drive($this->GClient);
@@ -151,23 +164,12 @@ public function googleGetFileContent($id){
 	public function DropboxUploadFile()
 	{
 		try{
-		/*$path = $_POST('path');*/
-		//var_dump($_POST['path']);
-		
-		
-		$uploadPath = $_POST['path'];
-		//var_dump($uploadPath);
-		$f = fopen($_FILES['fileField']['tmp_name'], "rb");
-		//var_dump($_FILES['fileField']['tmp_name']);
-		$content = file_get_contents($_FILES['fileField']['tmp_name']);
-		//echo $content;
-		$result = $client->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
+			$uploadPath = $_POST['path'];
+			$f = fopen($_FILES['fileField']['tmp_name'], "rb");
+			$content = file_get_contents($_FILES['fileField']['tmp_name']);
+			$result = $this->DClient->uploadFile($uploadPath, Dropbox\WriteMode::add(), $f);
 			fclose($f);
-			print_r($result);
-
-			return $client;
-			
-
+			return Redirect::to('home');
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
@@ -182,7 +184,7 @@ public function googleGetFileContent($id){
 		  } catch (Exception $e) {
 		    print "An error occurred: " . $e->getMessage();
 		  }
-		  $result="Lam cute";
+		  $result= "Delete file Dropbox succesfully";
 		  return $result;
 	}
 
@@ -191,9 +193,5 @@ public function googleGetFileContent($id){
 		 $this->DClient->delete($_POST['DropId']);
 		 return Redirect::to('/home');
 	}
-
-
-	
-
 
 }

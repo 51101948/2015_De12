@@ -3,12 +3,17 @@
 
 <div class="content">
 	<div class="section">
+
 		<div class="selection">
 			Choose: &nbsp; &nbsp;
 			<button id="Dchoose" class="btn btn-lg btn-primary">DManager</button>
 			<button id="Gchoose" class="btn btn-lg btn-primary">GManager</button>
 		</div>
 		<hr>
+		<?php if(Session::has('flash_message')): ?>
+		<?php echo Session::get('flash_message'); ?>
+
+		<?php endif; ?>
 		<div class="gManager">
 		<div>
 				Path: 
@@ -31,7 +36,7 @@
 								?>
 								<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span> 
 								&nbsp; &nbsp; &nbsp;<a class="folder" > <?php echo $file->getTitle().'<br>'; ?> </a>
-								<div class="subfolder" >
+								<div class="subfolder" style="display:none" >
 								<?php
 
 								showGFolder($Gclient, $Item_id);
@@ -50,7 +55,7 @@
 
 							  <button type="submit" id="moveFile" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
 								<button id="deleteFile" type="button" name="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
-
+								<button type="button"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></button>
 
 							</form>
 						
@@ -106,26 +111,32 @@
 				<?php
 					}
 					else{
+
+
 				?>
 				<span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp; &nbsp; &nbsp;
 				<a class="file"  id=<?php echo $content['path']; ?> href="javascript:void(0)" name=<?php echo substr($content['path'], $x+1); ?> > <?php echo substr($content['path'].'<br>', $x+1); ?></a> 
 						&nbsp; &nbsp; &nbsp;
 						<div class="transfer"  style="display:none">
-							<form method="post" action="/Test" name="submit" enctype="multipart/form-data">							  
+							<form method="post" action="/MovetoGDrive" name="submit" enctype="multipart/form-data">							  
 							  <input type="text" id="subfilepath" name="path" style="display: none" >
 							  <input type="text" id="subfilename" name="sfname" style="display: none" >
-							  <button type="submit" id="testbtn" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
+							  <button type="submit" id="testbtn2" name="submit"><span class="glyphicon glyphicon-send" aria-hidden="true"></button>
+
 							  	<button id="deleteFileDrop" type="button" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
 
+							  <a href="javascript:void(0)" id="DDownloadURL" target="_blank"><button type="button"><span class="glyphicon glyphicon-download-alt" aria-hidden="true"></button></a>
+
+
 							</form>
-						
+						<input type="text" id="DSFpath" name="path" value=<?php echo $content['path']; ?> style="display: none" >
 						</div><br>
 						<?php
 					}
 					 
 				}
-				?>					
-				
+				?>				
+					
 				<?php $folderMetadata = $client->getMetadataWithChildren("/");  ?>
 					<?php foreach($folderMetadata['contents'] as $content): ?>
 						<?php
@@ -140,7 +151,7 @@
     		</div>
 
     		
-			<form method="post" action="/DClient" name="submit" enctype="multipart/form-data">
+			<form method="post" action="/DUpload" name="submit" enctype="multipart/form-data">
 			  <input type="file" id="filename" name="fileField" style="display: inline-block">
 			  <input type="text" id="filepath" name="path" style="display: none" >
 			  <button type="submit" id="testbtn" name="submit">Upload</button>

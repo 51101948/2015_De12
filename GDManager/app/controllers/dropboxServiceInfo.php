@@ -67,8 +67,8 @@ class dropboxServiceInfo extends BaseController {
 
 		else{
 
-		$WA = $this->webAuth;
-		return Redirect::to($WA->start());
+			$WA = $this->webAuth;
+			return Redirect::to($WA->start());
 		} 
 	}
 
@@ -133,35 +133,12 @@ class dropboxServiceInfo extends BaseController {
 			fclose($f);
 			print_r($result);
 
-			return $client;
-			//return $folderMetadata;
-
-			/*			print_r($folderMetadata);
-
-					foreach ($folderMetadata['body']->contents as $fileObject) {
-			     	 $fileName = basename($fileObject->path);
-			      	$fileSize = $fileObject->size;
-			      	$fullFileName = $fileObject->path;
-			      	echo('          <li class="fileListItem"><span class="fileImage">&nbsp;</span><span class="fileName">' .
-			                          $fileName . '</span><span class="fileSize">' . $fileSize . "</span></li>\n");
-			  }
-						//var_dump($clientInfo);
-						echo "<br><br>";
-						//var_dump($_SERVER);
-
-						return folderMetadata;
-			*/	
-
 		} catch(Dropbox\Exception_InvalidAccessToken $e){
 			return Redirect::to('/DAuthStart');
 		}
 
 	}
 
-	public function downloadFile(){
-			$client = $this->getClient();
-			$fileMetadata = $client->getFile("/Test1/FileRac.txt", fopen(base_path('app/filerac.txt'), "a+"));
-			print_r($fileMetadata);
-	}
+
 
 }

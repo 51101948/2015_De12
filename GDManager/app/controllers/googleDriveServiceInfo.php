@@ -74,7 +74,7 @@ class googleDriveServiceInfo extends \BaseController {
 		} else{
 			echo "something went wrong. please contact to DB Manager";
 		}
-		return Redirect::to('/GClient');
+		return Redirect::to('/home');
 
 	}
 

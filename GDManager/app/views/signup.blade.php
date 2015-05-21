@@ -1,5 +1,6 @@
 <?php include (base_path('app/views/header.blade.php')); ?>
 {{ Form::open(array('url'=>'signup', 'class'=>'form-signup')) }}
+<br><br><br>
     <h2 class="form-signup-heading">Sign up</h2>
 
     <ul>
@@ -28,4 +29,5 @@
      {{ Form::submit('Sign up', array('class'=>'btn btn-primary'))}}
 {{ Form::close() }}
 </p>
+<br><br><br>
 <?php include (base_path('app/views/footer.blade.php')); ?>

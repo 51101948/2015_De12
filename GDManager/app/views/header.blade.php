@@ -39,7 +39,7 @@
 					        <span class="icon-bar"></span>
 					        <span class="icon-bar"></span>
 					      </button>
-					      <a class="navbar-brand" href="/">GDManager</a>
+					      <a class="navbar-brand" href="/home">GDManager</a>
 					    </div>
 
 					    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -48,12 +48,12 @@
 					        <li class="dropdown">
 					          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Manage<span class="caret"></span></a>
 					          <ul class="dropdown-menu" role="menu">
-					            <li><a href="#">Dropbox</a></li>
-					            <li class="divider"></li>
-					            <li><a href="#">Google Drive</a></li>
+					            <li><a id="menuDp" href="javascript:void(0)">Dropbox</a></li>
+					            <li  class="divider"></li>
+					            <li><a id="menuGd" href="javascript:void(0)">Google Drive</a></li>
 					          </ul>
 					        </li>
-					        <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+					        <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
 					      </ul>
 					      <form class="navbar-form navbar-left" role="search">
 					        <div class="form-group">
@@ -62,7 +62,7 @@
 					        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
 					      </form>
 					      <ul class="nav navbar-nav navbar-right">
-					        <li><a href="#">Profile</a></li>					   
+					        <li><a href="javascript:void(0)">Profile</a></li>					   
 					        <?php   
 							    if(null == (Session::get('user_id'))) {
 							        echo '<li><a href="/signup"><span>Sign Up</span></a></li><li><a href="/login"><span>Log In</span></a></li>';

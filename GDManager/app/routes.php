@@ -19,7 +19,7 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
 Route::get('/DAuthFinish', 'dropboxServiceInfo@AuthFinish');	
 Route::get('DClient','dropboxServiceInfo@getDropboxClient');
-Route::post('DClient','dropboxServiceInfo@uploadFile');
+Route::post('/DUpload','FilesController@DropboxUploadFile');
 Route::get('DDownload','dropboxServiceInfo@downloadFile');
 
 Route::get('/DAuthStart','dropboxServiceInfo@AuthStart');
@@ -37,10 +37,16 @@ Route::post('login', array('uses' => 'HomeController@doLogin'));
 
 Route::get('/', array('uses' => 'HomeController@showHome'));
 Route::post('/GUpload', array('uses'=>'FilesController@googleUploadFileContent'));
-Route::post('/Test','FilesController@MoveDroptoGDrive');
+Route::post('/MovetoGDrive','FilesController@MoveDroptoGDrive');
 Route::post('/MovetoDrop','FilesController@MoveGDrivetoDrop');
+
 Route::post('/Delete','FilesController@DeleteFile');
 Route::post('/DelFileDrop','FilesController@DeleteFileDropbox');
+
+
+Route::post('/DropboxDownload','FilesController@test');
+
+
 
 
 

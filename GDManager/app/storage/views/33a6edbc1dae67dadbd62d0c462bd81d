@@ -1,6 +1,7 @@
 
 
 <?php include (base_path('app/views/header.blade.php')); ?>
+<br><br><br><br><br><br>
 <?php if(Session::has('flash_message')): ?>
 <?php echo Session::get('flash_message'); ?>
 
@@ -33,4 +34,5 @@
 <p><?php echo Form::submit('Log in!' , array('class'=>'btn btn-primary')); ?></p>
 <?php echo Form::close(); ?>
 
+<br><br><br><br><br>
 <?php include (base_path('app/views/footer.blade.php')); ?>

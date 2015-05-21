@@ -134,3 +134,6 @@
 		.file, .transfer {
 			display: inline-block;
 		}
+		.fileGDtive,.transfertoDrop{
+			display: inline-block;
+		}

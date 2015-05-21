@@ -30,7 +30,7 @@ class HomeController extends BaseController {
 	{
 	    // show the form
 	    if( null != (Session::get('user_id'))){
-			return Redirect::to('/');
+			return Redirect::to('/home');
 		}
 		else {
 	    	return View::make('login');
